@@ -1,0 +1,26 @@
+{
+  "name": "hostelio",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/davidglnd/Hostelio#readme",
+  "bugs": {
+    "url": "https://github.com/davidglnd/Hostelio/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/davidglnd/Hostelio.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "module",
+  "main": "server/server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node --env-file=.env --watch server/server.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.6",
+    "express": "^5.2.1",
+    "mongoose": "^9.3.2"
+  }
+}

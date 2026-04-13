@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hostelio</title>
+</head>
+<body>
+    <h1>Gastos de proveedores</h1>
+    <h3>Añadir gastos de proveedores</h3>
+
+    <form>
+        <label for="supplier">Proveedor</label>
+        <input type="text" name="supplier" id="supplier" list="suppliers-list">
+        <datalist id="suppliers-list">
+            <option value="Supplier 1">
+            <option value="Supplier 2">
+        </datalist>
+
+        <label for="amount">Cantidad</label>
+        <input type="number" name="amount" id="amount">
+
+        <label for="date">Fecha</label>
+        <input type="date" name="date" id="date">
+
+        <label for="concept">Concepto</label>
+        <input type="text" name="concept" id="concept" list="concepts-list">
+        <datalist id="concepts-list">
+            <option value="Concepto 1">
+            <option value="Concepto 2">
+        </datalist>
+
+        <button type="submit">Añadir gasto</button>
+    </form>
+</body>
+</html>
