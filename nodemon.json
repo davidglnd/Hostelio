@@ -1,0 +1,4 @@
+{
+  "watch": ["server"],
+  "ignore": ["frontend", "node_modules", "*.log"]
+}

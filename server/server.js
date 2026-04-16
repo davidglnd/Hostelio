@@ -14,8 +14,6 @@ const PORT = process.env.PORT || 1337;
 //json and cookies
 app.use(express.json());
 
-console.log(process.env.MONGO_URI);
-
 // __dirname route
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
