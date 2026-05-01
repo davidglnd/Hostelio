@@ -1,6 +1,6 @@
 class User {
     constructor(idUser, firstName, email, password, role = "basic", lastName, businessName) {
-        this.idUser = idUser || crypto.randomUUID();
+        this.idUser = crypto.randomUUID();
         this.firstName = firstName.trim().toLowerCase() || "";
         this.email = email?.trim().toLowerCase() || "";
         this.password = password;

@@ -6,36 +6,48 @@ import { connectToDB } from './db.js';
 
 import { fileURLToPath } from 'url';
 
-
-
+import cors from "cors";
+//import validators
+import { loginValidator } from './validators/login.validator.js';
+//import controllers
+import { login } from './controllers/login.controller.js';
 const app = express();
-const PORT = process.env.PORT || 1337;
+const PORT = process.env.PORT || 3000;
 
-//json and cookies
-app.use(express.json());
-
-// __dirname route
+// __dirname
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-
-// __dirname route to frontend
 const frontendPath = path.join(__dirname, '../frontend');
 
-// static
+// 1. Logger
+app.use((req, res, next) => {
+    console.log("➡️", req.method, req.url);
+    next();
+});
+
+// 2. Middlewares globales
+app.use(cors());
+app.use(express.json());
+
+// 3. Archivos estáticos (antes de las rutas y del 404)
 app.use(express.static(frontendPath));
 
-// routes
+// 4. Rutas
 app.get('/', (req, res) => {
     res.sendFile(path.join(frontendPath, 'index.html'));
 });
 
-// Page 404
+app.post('/api/login', loginValidator, login );
+// app.post('/api/login', (req, res) => {
+//     console.log(req.body);
+// });
+// 5. 404 al final de todo
 app.use((req, res) => {
-  res.status(404).sendFile('404.html', { root: frontendPath });
+    res.status(404).sendFile('404.html', { root: frontendPath });
 });
-// connect Mongo
+
+// Conectar y arrancar
 connectToDB();
-// start server
 app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`, `http://localhost:${PORT}`);
+    console.log(`http://localhost:${PORT}`);
 });
