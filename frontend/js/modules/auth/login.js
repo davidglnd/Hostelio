@@ -1,4 +1,4 @@
-import axios from "https://cdn.jsdelivr.net/npm/axios@1.6.7/+esm";
+import axios from "axios";
 export function initLogin() {
     console.log("Login module loaded");
 

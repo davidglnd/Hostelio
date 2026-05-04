@@ -41,6 +41,7 @@ app.use((req, res) => {
 });
 
 connectToDB();
+
 app.listen(PORT, () => {
     console.log(`http://localhost:${PORT}`);
 });

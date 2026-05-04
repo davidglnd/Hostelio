@@ -1,7 +1,8 @@
 import {initExpenses} from "./modules/expenses.js";
-import {initLogin} from "./modules/login.js";
-import {initSignup} from "./modules/signup.js";
-
+import {initLogin} from "./modules/auth/login.js";
+import {initSignup} from "./modules/auth/signup.js";
+//components 
+import "./components/buttons/logout-button.js";
 document.addEventListener("DOMContentLoaded", () => {
     const page = document.body.dataset.page;
 
