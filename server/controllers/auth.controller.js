@@ -59,7 +59,7 @@ async function login(req, res) {
         });
     } catch (err) {
         console.error("Error en login:", err);
-        return res.status(500).json({ error: "Error interno del servidor." });
+        return res.status(500).json({ error: "Error interno del servidor en el login." });
     }
 }
 

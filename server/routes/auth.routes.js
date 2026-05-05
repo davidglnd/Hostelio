@@ -5,13 +5,13 @@ import { loginValidator } from "../validators/login.validator.js";
 
 const router = express.Router();
 
-// POST /auth/login  → genera sesión y cookie
+// POST /auth/login  
 router.post("/login",loginValidator, login);
 
-// POST /auth/logout → elimina la cookie
+// POST /auth/logout 
 router.post("/logout", logout);
 
-// GET  /auth/me     → devuelve el usuario actual (ruta protegida)
+// GET  /auth/me  
 router.get("/me", requireAuth, me);
 
 export default router;
