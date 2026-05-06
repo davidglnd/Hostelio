@@ -29,7 +29,7 @@ async function handleSubmit(e) {
     try{
         const result = await loginUser(data);
         console.log(result);
-        window.location.href = "/pages/expenses.html";
+        window.location.href = "/pages/dashboard.html";
     }catch(error){
         handleError(error);
     }
