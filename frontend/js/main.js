@@ -5,6 +5,7 @@ import {initSignup} from "./modules/auth/signup.js";
 //components 
 import "./components/buttons/logout-button.js";
 import "./components/sidebar-nav.js";
+import "./components/app-header.js";
 
 document.addEventListener("DOMContentLoaded", () => {
     const page = document.body.dataset.page;
