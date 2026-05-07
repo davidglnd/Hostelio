@@ -24,3 +24,13 @@ export async function addExpenses(req, res) {
     }
 
 }
+
+export async function getAllExpenses(req, res) {
+    try{
+        const expenses = await Expense.find({ idUser: req.user.id });
+        res.status(200).json(expenses);
+    }catch(err){
+        console.log(err);
+        res.status(500).json({ message: "Error al obtener los gastos." });
+    }
+}
