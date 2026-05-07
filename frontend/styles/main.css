@@ -1,0 +1,27 @@
+/* ============================================================
+   MAIN — Punto de entrada. Solo imports y declaración de capas.
+   No añadir estilos aquí directamente.
+   ============================================================ */
+
+/* 1. Declarar el orden de las capas ANTES de cualquier import */
+@layer reset, base, layout, components, utilities;
+
+/* 2. Tokens (sin capa: las custom properties deben estar siempre disponibles) */
+@import "base/tokens.css";
+
+/* 3. Reset */
+@import "base/reset.css" layer(reset);
+
+/* 4. Base */
+@import "base/typography.css" layer(base);
+
+/* 5. Layout (añadir cuando exista) */
+@import "layout/grid.css"    layer(layout);
+/* @import "layout/spacing.css" layer(layout); */
+
+/* 6. Components (añadir según se vayan creando) */
+/* @import "components/button.css" layer(components); */
+/* @import "components/card.css"   layer(components); */
+
+/* 7. Utilities */
+/* @import "utilities/helpers.css" layer(utilities); */

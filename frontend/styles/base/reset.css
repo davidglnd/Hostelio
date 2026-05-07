@@ -1,0 +1,111 @@
+/* ============================================================
+   RESET — Moderno, mínimo, sin opiniones
+   Basado en: Andy Bell's Modern Reset 
+   ============================================================ */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+  tab-size: 2;
+  scroll-behavior: smooth;
+  hanging-punctuation: first last;
+}
+
+body {
+  min-height: 100dvh;
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  line-height: var(--leading-normal);
+  color: var(--color-text-primary);
+  background-color: var(--color-bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Evita overflow horizontal accidental */
+body, html {
+  overflow-x: hidden;
+}
+
+/* Imágenes y media responsivos por defecto */
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* Herencia de fuente en inputs (los navegadores no lo hacen por defecto) */
+input, button, textarea, select {
+  font: inherit;
+  color: inherit;
+}
+
+/* Textarea sin resize horizontal */
+textarea {
+  resize: vertical;
+}
+
+/* Elimina estilos de lista cuando se usa role="list" */
+ul[role='list'],
+ol[role='list'] {
+  list-style: none;
+}
+
+/* Mejora tipografía en párrafos largos */
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  text-wrap: balance;
+}
+
+/* Anclas sin subrayado por defecto */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Botones sin estilos nativos */
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+/* Tablas más predecibles */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* Focus visible accesible */
+:focus-visible {
+  outline: var(--border-width-thick) solid var(--color-primary-400);
+  outline-offset: 3px;
+  border-radius: var(--radius-sm);
+}
+
+/* Elimina outline por defecto (reemplazado por :focus-visible) */
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* Reducción de movimiento */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

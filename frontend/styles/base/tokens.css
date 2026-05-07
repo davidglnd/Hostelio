@@ -1,0 +1,142 @@
+/* ============================================================
+   TOKENS — Fuente única de verdad
+   Paleta: Warm Neutral + Naranja tostado
+   Tipografía: Playfair Display (headings) + Inter (body)
+   Modo: solo light
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap');
+
+:root {
+
+  /* --- Colores: Acento (naranja tostado) --- */
+  --color-accent-50:  #FBF0EB;
+  --color-accent-100: #F5D9CC;
+  --color-accent-200: #EDB89F;
+  --color-accent-400: #D97040;
+  --color-accent-600: #C95B2A;
+  --color-accent-800: #8F3D18;
+  --color-accent-900: #5C2510;
+
+  /* --- Colores: Neutros cálidos --- */
+  --color-neutral-0:   #FFFFFF;
+  --color-neutral-50:  #FAFAF8;
+  --color-neutral-100: #F2EFE9;
+  --color-neutral-200: #E2DED8;
+  --color-neutral-300: #C8C4BC;
+  --color-neutral-400: #A09C94;
+  --color-neutral-500: #7D7970;
+  --color-neutral-600: #6B6860;
+  --color-neutral-800: #2E2C28;
+  --color-neutral-900: #1A1A18;
+
+  /* --- Colores: Semánticos --- */
+  --color-success:       #2D7A4F;
+  --color-success-bg:    #EAF5EE;
+  --color-warning:       #A06B10;
+  --color-warning-bg:    #FDF3E0;
+  --color-danger:        #B83232;
+  --color-danger-bg:     #FCEAEA;
+  --color-info:          #2B5EA7;
+  --color-info-bg:       #EAF0FB;
+
+  /* --- Superficies --- */
+  --color-bg:            var(--color-neutral-100);  /* fondo página */
+  --color-bg-sidebar:    var(--color-neutral-50);   /* fondo sidebar */
+  --color-surface:       var(--color-neutral-0);    /* cards, panels */
+  --color-surface-raised: var(--color-neutral-0);   /* modales */
+
+  /* --- Bordes --- */
+  --color-border:        var(--color-neutral-200);
+  --color-border-subtle: var(--color-neutral-100);
+  --color-border-strong: var(--color-neutral-300);
+
+  /* --- Texto --- */
+  --color-text-primary:   var(--color-neutral-900);
+  --color-text-secondary: var(--color-neutral-600);
+  --color-text-muted:     var(--color-neutral-400);
+  --color-text-inverse:   var(--color-neutral-0);
+  --color-text-accent:    var(--color-accent-600);
+
+  /* --- Sidebar activo --- */
+  --color-sidebar-active-bg:   var(--color-accent-50);
+  --color-sidebar-active-text: var(--color-accent-600);
+
+  /* --- Tipografía: familias --- */
+  --font-heading: 'Playfair Display', Georgia, serif;
+  --font-body:    'Inter', system-ui, sans-serif;
+  --font-mono:    'JetBrains Mono', 'Fira Code', monospace;
+
+  /* --- Tipografía: escala (Major Third × 1.25) --- */
+  --text-xs:   0.64rem;    /*  ~10px */
+  --text-sm:   0.8rem;     /*  ~13px */
+  --text-base: 1rem;       /*   16px */
+  --text-md:   1.25rem;    /*   20px */
+  --text-lg:   1.563rem;   /*   25px */
+  --text-xl:   1.953rem;   /*   31px */
+  --text-2xl:  2.441rem;   /*   39px */
+  --text-3xl:  3.052rem;   /*   49px */
+
+  /* --- Tipografía: pesos --- */
+  --font-regular:  400;
+  --font-medium:   500;
+  --font-semibold: 600;
+  --font-bold:     700;
+
+  /* --- Tipografía: line-height --- */
+  --leading-tight:  1.2;
+  --leading-snug:   1.4;
+  --leading-normal: 1.6;
+  --leading-loose:  1.8;
+
+  /* --- Espaciado (base 4px) --- */
+  --space-1:  0.25rem;   /*  4px */
+  --space-2:  0.5rem;    /*  8px */
+  --space-3:  0.75rem;   /* 12px */
+  --space-4:  1rem;      /* 16px */
+  --space-5:  1.25rem;   /* 20px */
+  --space-6:  1.5rem;    /* 24px */
+  --space-8:  2rem;      /* 32px */
+  --space-10: 2.5rem;    /* 40px */
+  --space-12: 3rem;      /* 48px */
+  --space-16: 4rem;      /* 64px */
+  --space-20: 5rem;      /* 80px */
+  --space-24: 6rem;      /* 96px */
+
+  /* --- Bordes --- */
+  --radius-sm:   4px;
+  --radius-md:   8px;
+  --radius-lg:   12px;
+  --radius-xl:   20px;
+  --radius-full: 9999px;
+
+  --border-width:       1px;
+  --border-width-thick: 2px;
+
+  /* --- Sombras --- */
+  --shadow-sm: 0 1px 3px rgba(26, 26, 24, 0.06);
+  --shadow-md: 0 4px 12px rgba(26, 26, 24, 0.08);
+  --shadow-lg: 0 8px 28px rgba(26, 26, 24, 0.12);
+
+  /* --- Transiciones --- */
+  --transition-fast:   150ms ease;
+  --transition-normal: 250ms ease;
+  --transition-slow:   400ms ease;
+
+  /* --- Layout --- */
+  --sidebar-width:   260px;
+  --header-height:   56px;
+
+  --container-sm:  640px;
+  --container-md:  768px;
+  --container-lg:  1024px;
+  --container-xl:  1280px;
+  --container-2xl: 1440px;
+
+  /* --- Z-index --- */
+  --z-base:    0;
+  --z-raised:  10;
+  --z-overlay: 100;
+  --z-modal:   200;
+  --z-toast:   300;
+}
