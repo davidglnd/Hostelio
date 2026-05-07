@@ -1,6 +1,9 @@
 import { LitElement, html, css } from "lit";
 
 export class SidebarNav extends LitElement {
+    static properties = {
+        activeItem: { type: String },
+    }
     static styles = css `    
         aside {
             grid-area: sidebar;
@@ -25,7 +28,7 @@ export class SidebarNav extends LitElement {
             margin-bottom: 2px;
         }
         
-        a {
+        li {
             text-decoration: none;
             font-size: var(--text-base);
             color: var(--color-text-primary);
@@ -37,14 +40,16 @@ export class SidebarNav extends LitElement {
             padding-left: 12px;
             padding-right: 4px;
             border-radius: var(--radius-md);
-            transition: var(--transition-fast);
+            border:var(--border-width) solid transparent;
+            cursor: pointer;
         }
-        a.active {
+        li.active {
             background: var(--color-sidebar-active-bg);
             color: var(--color-sidebar-active-text);
-            border:var(--border-width) solid var(--color-border);
+            border:var(--border-width) solid var(--color-accent-400);
+            border-radius: var(--radius-md);
         }
-        a:hover {
+        li:hover {
             background: var(--color-sidebar-active-bg);
             color: var(--color-sidebar-active-text);
         }
@@ -53,21 +58,35 @@ export class SidebarNav extends LitElement {
         return html`
             <aside>
                 <span class="nav-section-label">General</span>
-                <a class="nav-item active" href="#">
+                <li class="nav-item ${this._isActive("summary")}" @click=${(e) => this._handleClick(e, "summary")}>
                     Resumen
-                </a>
-                <a class="nav-item" href="#">
+                </li>
+                <li class="nav-item ${this._isActive("stats")}" @click=${(e) => this._handleClick(e, "stats")}>
                     Estadisticas
-                </a>
+                </li>
                 <span class="nav-section-label">Informes</span>
-                <a class="nav-item" href="#">
+                <li class="nav-item ${this._isActive("monthly")}" @click=${(e) => this._handleClick(e, "monthly")}>
                     Mensual
-                </a>
-                <a class="nav-item" href="#">
+                </li>
+                <li class="nav-item ${this._isActive("weekly")}" @click=${(e) => this._handleClick(e, "weekly")}>
                     Semanal
-                </a>
+                </li>
             </aside>
         `;
+    }
+    _isActive(item) {
+        console.log("element")
+        return this.activeItem === item ? "active" : "";
+    }
+    _handleClick(e, target){
+        this.shadowRoot.querySelectorAll(".nav-item").forEach(item => item.classList.remove("active"));
+        e.target.classList.add("active");
+        this.dispatchEvent(new CustomEvent("sidebar-item-clicked", {
+            detail: target,
+            bubbles:true,
+            composed:true,
+            }
+        ));
     }
 }
 

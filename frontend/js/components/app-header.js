@@ -3,7 +3,6 @@ import { LitElement, html, css } from "lit";
 export class AppHeader extends LitElement {
     static properties = {
         currentPath: { type: String },
-        scrolled: { type: Boolean, state: true },
     };
 
     static styles = css`
@@ -136,7 +135,6 @@ export class AppHeader extends LitElement {
 
                 <nav class="header-nav">
                     <a href="/pages/dashboard" class="${this._isActive("dashboard")}">Inicio</a>
-                    <a href="/pages/expenses"  class="${this._isActive("expenses")}">Gastos</a>
                 </nav>
 
                 <div class="header-right">

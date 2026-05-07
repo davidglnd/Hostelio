@@ -1,6 +1,7 @@
 import {initExpenses} from "./modules/expenses.js";
 import {initLogin} from "./modules/auth/login.js";
 import {initSignup} from "./modules/auth/signup.js";
+import {initDashboard} from "./modules/dashboard.js";
 
 //components 
 import "./components/buttons/logout-button.js";
@@ -19,6 +20,9 @@ document.addEventListener("DOMContentLoaded", () => {
             break;
         case "signup":
             initSignup();
+            break;
+        case "dashboard":
+            initDashboard();
             break;
     }
 });
