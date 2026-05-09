@@ -6,7 +6,7 @@
 /* 1. Declarar el orden de las capas ANTES de cualquier import */
 @layer reset, base, layout, components, utilities;
 
-/* 2. Tokens (sin capa: las custom properties deben estar siempre disponibles) */
+/* 2. Tokens */
 @import "base/tokens.css";
 
 /* 3. Reset */
@@ -17,11 +17,10 @@
 
 /* 5. Layout (añadir cuando exista) */
 @import "layout/grid.css"    layer(layout);
-/* @import "layout/spacing.css" layer(layout); */
+@import "layout/dashboard.css" layer(layout); 
 
-/* 6. Components (añadir según se vayan creando) */
-/* @import "components/button.css" layer(components); */
-/* @import "components/card.css"   layer(components); */
+/* 6. Components */
+
 
 /* 7. Utilities */
-/* @import "utilities/helpers.css" layer(utilities); */
+

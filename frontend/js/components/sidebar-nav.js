@@ -75,7 +75,6 @@ export class SidebarNav extends LitElement {
         `;
     }
     _isActive(item) {
-        console.log("element")
         return this.activeItem === item ? "active" : "";
     }
     _handleClick(e, target){

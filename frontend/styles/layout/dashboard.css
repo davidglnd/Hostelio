@@ -1,0 +1,7 @@
+main {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: var(--space-2);
+    padding: var(--space-6);
+    grid-auto-rows: minmax(min-content, max-content);
+}
