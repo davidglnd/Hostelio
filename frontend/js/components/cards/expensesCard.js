@@ -37,13 +37,13 @@ export class ExpensesCard extends LitElement {
             box-shadow: var(--shadow-md);
         }
 
-        .card__header {
+        .card-header {
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
         }
 
-        .card__supplier {
+        .card-supplier {
             font-family: var(--font-heading);
             font-size: var(--text-md);
             font-weight: var(--font-bold);
@@ -51,7 +51,7 @@ export class ExpensesCard extends LitElement {
             line-height: var(--leading-tight);
         }
 
-        .card__amount {
+        .card-amount {
             font-family: var(--font-heading);
             font-size: var(--text-lg);
             font-weight: var(--font-bold);
@@ -59,14 +59,14 @@ export class ExpensesCard extends LitElement {
             line-height: 1;
         }
 
-        .card__concept {
+        .card-concept {
             font-family: var(--font-body);
             font-size: var(--text-sm);
             font-weight: var(--font-medium);
             color: var(--color-text-secondary);
         }
 
-        .card__footer {
+        .card-footer {
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -74,7 +74,7 @@ export class ExpensesCard extends LitElement {
             border-top: var(--border-width) solid var(--color-border-subtle);
         }
 
-        .card__date {
+        .card-date {
             font-family: var(--font-body);
             font-size: var(--text-xs);
             font-weight: var(--font-semibold);
@@ -83,7 +83,7 @@ export class ExpensesCard extends LitElement {
             color: var(--color-text-muted);
         }
 
-        .card__description {
+        .card-description {
             font-family: var(--font-body);
             font-size: var(--text-xs);
             color: var(--color-text-muted);
@@ -93,16 +93,16 @@ export class ExpensesCard extends LitElement {
     render() {
         return html`
             <article class="card">
-                <div class="card__header">
-                    <span class="card__supplier">${this.supplier}</span>
-                    <span class="card__amount">${this.amount}€</span>
+                <div class="card-header">
+                    <span class="card-supplier">${this.supplier}</span>
+                    <span class="card-amount">${this.amount}€</span>
                 </div>
 
-                <span class="card__concept">${this.concept}</span>
+                <span class="card-concept">${this.concept}</span>
 
-                <div class="card__footer">
-                    <span class="card__date">${this.date}</span>
-                    <span class="card__description">${this.description}</span>
+                <div class="card-footer">
+                    <span class="card-date">${this.date}</span>
+                    <span class="card-description">${this.description}</span>
                 </div>
             </article>
         `;

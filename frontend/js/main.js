@@ -7,7 +7,8 @@ import {initDashboard} from "./modules/dashboard.js";
 import "./components/buttons/logout-button.js";
 import "./components/sidebar-nav.js";
 import "./components/app-header.js";
-import "./components/expensesCard.js";
+import "./components/cards/expensesCard.js";
+import "./components/cards/statsCard.js"
 
 document.addEventListener("DOMContentLoaded", () => {
     const page = document.body.dataset.page;
