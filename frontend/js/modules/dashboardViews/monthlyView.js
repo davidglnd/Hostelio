@@ -1,6 +1,7 @@
 export function monthlyView (expenses){
     console.log("Monthly view loaded");
-    calculeStats(expenses);
+
+    initView(expenses);
 }
 function calculeStats(expenses){
     const month = new Date().getMonth() + 1;
@@ -21,9 +22,12 @@ function calculeStats(expenses){
     const maxRepeat = Object.entries(supplierCount).reduce((max, current) => {
         return current[1] > max[1] ? current : max;
     })
+
+    const monthlyExpenses = expenses.filter(expense => new Date(expense.date).getMonth() + 1 === month);
+
     currentMonth(month, porcentualDifference, totalExpenses)
     mostFrequentSupplier(maxRepeat);
-
+    renderTableExpenses(monthlyExpenses);
 }
 function currentMonth(month, porcentualDifference, totalExpenses){
     const trend = porcentualDifference > 0 ? "up" : porcentualDifference < 0 ? "down" : "flat";
@@ -40,24 +44,67 @@ function currentMonth(month, porcentualDifference, totalExpenses){
         trend: trend
     }
 
-    render(stats);
+    renderStats(stats);
 }
 function mostFrequentSupplier(maxRepeat){
     const stats =   {
         label: "Proveedor mas frecuente",
         title: maxRepeat[0],
         info: maxRepeat[1] + " veces"
-    }
-    render(stats);
+    }// TO DO: QUE SALGA LAS CANTIDAD DE DINEROS QUE HA GASTADO ESE MES EN ESE PROVEEDOR
+    renderStats(stats);
 }
-function render(stats){
-    const main = document.querySelector("main");
-    const statsCard = document.createElement("stats-card");
+function renderHeader(){
+    const date = new Date();
 
+    const main = document.querySelector("main");
+    const header = document.createElement("div");
+    const divTitle = document.createElement("div");
+    const title = document.createElement("h2");
+    const subtitle = document.createElement("p");
+    const button = document.createElement("button");
+
+    header.className = "body-header";
+    title.textContent = "Estadisticas mensuales";
+    subtitle.textContent = `${date.toLocaleString('default', { weekday: 'long' })} ${date.toLocaleString('default', { day: 'numeric' })} de ${date.toLocaleString('default', { month: 'long' })} ${date.getFullYear()}`;
+    button.textContent = "Añadir gasto";// TO DO TERMINAR EL BOTON Y ESTILOS DEL HEADER (CREAR COMPONENTE HEADER)
+
+    main.appendChild(header);
+    header.appendChild(divTitle);
+    header.appendChild(button);
+    divTitle.appendChild(title);
+    divTitle.appendChild(subtitle);
+}
+function renderStats(stats){
+    const divStatsCards = document.querySelector(".stats-cards");
+    const statsCard = document.createElement("stats-card");
+    
     statsCard.label = stats.label;
     statsCard.title = stats.title;
     statsCard.info = stats.info;
     statsCard.trend = stats.trend || "";
 
-    main.appendChild(statsCard);
+    divStatsCards.appendChild(statsCard);
+}
+
+function initView(expenses){
+    const main = document.querySelector("main");
+    main.innerHTML = "";
+
+    renderHeader();
+
+    main.appendChild(createStatsContainer());
+
+    calculeStats(expenses);
+}
+function renderTableExpenses(expenses){
+    const main = document.querySelector("main");
+    const table = document.createElement("table-expenses");
+    table.expenses = expenses;
+    main.appendChild(table);
+}
+function createStatsContainer(){
+    const div = document.createElement("div");
+    div.className = "stats-cards";
+    return div;
 }

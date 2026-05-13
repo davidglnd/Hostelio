@@ -1,7 +1,21 @@
 main {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: var(--space-2);
-    padding: var(--space-6);
-    grid-auto-rows: minmax(min-content, max-content);
+    display: flex;
+    flex-direction: column;
+    padding-top: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    gap: 50px;
+}
+
+.body-header{
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+}
+
+.stats-cards {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    width: 100%;
 }

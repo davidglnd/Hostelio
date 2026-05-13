@@ -9,6 +9,7 @@ import "./components/sidebar-nav.js";
 import "./components/app-header.js";
 import "./components/cards/expensesCard.js";
 import "./components/cards/statsCard.js"
+import "./components/table-expenses.js";
 
 document.addEventListener("DOMContentLoaded", () => {
     const page = document.body.dataset.page;
