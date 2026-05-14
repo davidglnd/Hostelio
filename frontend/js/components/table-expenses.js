@@ -105,7 +105,7 @@ export class tableExpenses extends LitElement {
         return html`
             <div class="card">
                 <div class="card-header">
-                    <h2>Registro de gastos</h2>
+                    <h2>Registro de gastos mensuales</h2>
                     <div class="actions">
                         <button class="btn-ghost">Filtrar</button>
                         <button class="btn-ghost">Exportar</button>

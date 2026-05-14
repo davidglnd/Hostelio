@@ -14,7 +14,7 @@ function setupEvents(){
     form.addEventListener("submit", handleSubmit);
 }
 
-function handleSubmit(e){
+async function handleSubmit(e){
     e.preventDefault();
     
     const formData = new FormData(e.target);
@@ -32,7 +32,7 @@ function handleSubmit(e){
     if(error) return console.error(error);
 
     try{
-        const result = axios.post("/api/expenses", data);
+        const result = await axios.post("/api/expenses", data);
         console.log(result);
         //window.location.href = "/pages/expenses.html";
     }catch(error){

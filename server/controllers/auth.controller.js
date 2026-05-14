@@ -45,7 +45,7 @@ async function login(req, res) {
 
         // Generar JWT con datos básicos del usuario (nunca incluyas la contraseña)
         const token = jwt.sign(
-            { id: user.idUser, email: user.email },
+            { id: user.idUser, email: user.email, name: user.firstName },
             JWT_SECRET,
             { expiresIn: JWT_EXPIRES_IN }
         );

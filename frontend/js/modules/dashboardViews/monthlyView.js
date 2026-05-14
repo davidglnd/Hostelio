@@ -1,3 +1,4 @@
+import { firstLetterUpperCase } from "../../utils/strings.js";
 export function monthlyView (expenses){
     console.log("Monthly view loaded");
 
@@ -58,22 +59,15 @@ function renderHeader(){
     const date = new Date();
 
     const main = document.querySelector("main");
-    const header = document.createElement("div");
-    const divTitle = document.createElement("div");
-    const title = document.createElement("h2");
-    const subtitle = document.createElement("p");
+    const header = document.createElement("main-header");
     const button = document.createElement("button");
 
-    header.className = "body-header";
-    title.textContent = "Estadisticas mensuales";
-    subtitle.textContent = `${date.toLocaleString('default', { weekday: 'long' })} ${date.toLocaleString('default', { day: 'numeric' })} de ${date.toLocaleString('default', { month: 'long' })} ${date.getFullYear()}`;
-    button.textContent = "Añadir gasto";// TO DO TERMINAR EL BOTON Y ESTILOS DEL HEADER (CREAR COMPONENTE HEADER)
-
+    header.title = "Estadisticas mensuales";
+    header.subtitle = `${firstLetterUpperCase(date.toLocaleString('default', { weekday: 'long' }))} ${date.toLocaleString('default', { day: 'numeric' })} de ${date.toLocaleString('default', { month: 'long' })} ${date.getFullYear()}`;
+    button.textContent = "Añadir gasto";
+    
     main.appendChild(header);
-    header.appendChild(divTitle);
     header.appendChild(button);
-    divTitle.appendChild(title);
-    divTitle.appendChild(subtitle);
 }
 function renderStats(stats){
     const divStatsCards = document.querySelector(".stats-cards");

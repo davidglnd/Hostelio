@@ -1,4 +1,5 @@
 import { LitElement, html, css } from "lit";
+import { logout } from "../modules/auth/logout";
 
 export class AppHeader extends LitElement {
     static properties = {
@@ -97,6 +98,7 @@ export class AppHeader extends LitElement {
             color: var(--color-text-secondary);
             text-decoration: none;
             transition: color var(--transition-fast);
+            cursor: pointer;
         }
  
         .header-right a:hover {
@@ -124,7 +126,9 @@ export class AppHeader extends LitElement {
     _isActive(href) {
         return href === this.currentPath ? "active" : "";
     }
-
+    _logout(){
+        logout();
+    }
     render() {
         return html`
             <header>
@@ -139,10 +143,12 @@ export class AppHeader extends LitElement {
 
                 <div class="header-right">
                     <a href="/pages/profile">Perfil</a>
+                    <a @click="${this._logout}">Cerrar sesión</a>
                 </div>
             </header>
         `;
     }
+
 }
 
 customElements.define("app-header", AppHeader);
