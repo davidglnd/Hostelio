@@ -2,10 +2,12 @@ import { defineConfig } from 'vite';
 import { resolve } from 'path';
 
 export default defineConfig({
+  root: 'frontend',
   build: {
+    outDir: 'dist',
     rollupOptions: {
       input: {
-        main: resolve(__dirname, 'index.html'),
+        main: resolve(__dirname, 'frontend/index.html'),
         login: resolve(__dirname, 'frontend/pages/login.html'),
         signup: resolve(__dirname, 'frontend/pages/signup.html'),
         dashboard: resolve(__dirname, 'frontend/pages/dashboard.html'),
