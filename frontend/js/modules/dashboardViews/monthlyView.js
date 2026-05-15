@@ -13,21 +13,19 @@ function calculeStats(expenses){
     const expensesLastMonth = expenses.filter( expense => new Date(expense.date).getMonth() + 1 === lastMonth ).reduce((acc, expense) => acc + expense.amount, 0);
     const totalExpenses = expenses.filter( expense => new Date(expense.date).getMonth() + 1 === month ).reduce((acc, expense) => acc + expense.amount, 0);
     const porcentualDifference = expensesLastMonth > 0 ? Math.round((totalExpenses - expensesLastMonth) / expensesLastMonth * 100): null;    
-    const supplier = expenses.map(expense => expense.supplier)
+    const supplierThisMonth = expenses.filter(expense => new Date(expense.date).getMonth() + 1 === month ).map(expense => [expense.supplier, expense.amount]);
 
-    const supplierCount = supplier.reduce((acc, supplier) => {
-        acc[supplier] = (acc[supplier] || 0) + 1;
-        return acc;
-    }, {})
-
-    const maxRepeat = Object.entries(supplierCount).reduce((max, current) => {
-        return current[1] > max[1] ? current : max;
-    })
+    const maxExpenseSupplier = supplierThisMonth.reduce((acc, [supplier, amount]) => {
+        acc[supplier] 
+            ? acc[supplier] += amount 
+            : acc[supplier] = amount 
+        return acc
+    }, {});
 
     const monthlyExpenses = expenses.filter(expense => new Date(expense.date).getMonth() + 1 === month);
 
     currentMonth(month, porcentualDifference, totalExpenses)
-    mostFrequentSupplier(maxRepeat);
+    mostFrequentSupplier(maxExpenseSupplier);
     renderTableExpenses(monthlyExpenses);
 }
 function currentMonth(month, porcentualDifference, totalExpenses){
@@ -47,12 +45,14 @@ function currentMonth(month, porcentualDifference, totalExpenses){
 
     renderStats(stats);
 }
-function mostFrequentSupplier(maxRepeat){
+function mostFrequentSupplier(maxExpenseSupplier){
+    const sorted = Object.entries(maxExpenseSupplier).sort((a, b) => b[1] - a[1]);
+
     const stats =   {
         label: "Proveedor mas frecuente",
-        title: maxRepeat[0],
-        info: maxRepeat[1] + " veces"
-    }// TO DO: QUE SALGA LAS CANTIDAD DE DINEROS QUE HA GASTADO ESE MES EN ESE PROVEEDOR
+        title: sorted[0][0],
+        info: sorted[0][1] + " € este mes", 
+    }
     renderStats(stats);
 }
 function renderHeader(){
