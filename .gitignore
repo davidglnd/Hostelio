@@ -5,3 +5,4 @@ node_modules
 .git
 hash.js
 temporal.js
+frontend/dist

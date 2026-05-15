@@ -1,10 +1,13 @@
 import { defineConfig } from 'vite';
 import { resolve } from 'path';
+import { fileURLToPath } from 'url';
+
+const __dirname = fileURLToPath(new URL('.', import.meta.url));
 
 export default defineConfig({
   root: 'frontend',
   build: {
-    outDir: 'dist',
+    outDir: '../frontend/dist',
     rollupOptions: {
       input: {
         main: resolve(__dirname, 'frontend/index.html'),
