@@ -1,5 +1,6 @@
 import { summaryView } from "../modules/dashboardViews/summaryView.js";
 import { monthlyView } from "../modules/dashboardViews/monthlyView.js";
+import { statsView } from "../modules/dashboardViews/statsView.js";
 import { getExpenses } from "./stores/expensesStore.js";
 
 export function initDashboard() {
@@ -38,6 +39,9 @@ function handleViewChange(view, expenses) {
             break;
         case "monthly":
             monthlyView(expenses);
+            break;
+        case "stats":
+            statsView(expenses);
             break;
     }
 }
