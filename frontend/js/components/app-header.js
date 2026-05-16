@@ -138,8 +138,8 @@ export class AppHeader extends LitElement {
                 </div>
 
                 <nav class="header-nav">
-                    <a href="/pages/dashboard" class="${this._isActive("dashboard")}">Inicio</a>
-                    <a href="/pages/expenses" class="${this._isActive("expenses")}">Gastos</a>
+                    <a href="/pages/dashboard.html" class="${this._isActive("dashboard")}">Inicio</a>
+                    <a href="/pages/expenses.html" class="${this._isActive("expenses")}">Gastos</a>
                 </nav>
 
                 <div class="header-right">
