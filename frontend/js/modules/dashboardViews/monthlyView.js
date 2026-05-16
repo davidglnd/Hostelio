@@ -12,7 +12,7 @@ function calculeStats(expenses){
 
     const expensesLastMonth = expenses.filter( expense => new Date(expense.date).getMonth() + 1 === lastMonth ).reduce((acc, expense) => acc + expense.amount, 0);
     const totalExpenses = expenses.filter( expense => new Date(expense.date).getMonth() + 1 === month ).reduce((acc, expense) => acc + expense.amount, 0);
-    const porcentualDifference = expensesLastMonth > 0 ? Math.round((totalExpenses - expensesLastMonth) / expensesLastMonth * 100): null;    
+    const porcentualDifference = expensesLastMonth > 0 ? Math.round((totalExpenses - expensesLastMonth) / expensesLastMonth * 100): totalExpenses;    
     const supplierThisMonth = expenses.filter(expense => new Date(expense.date).getMonth() + 1 === month ).map(expense => [expense.supplier, expense.amount]);
 
     const maxExpenseSupplier = supplierThisMonth.reduce((acc, [supplier, amount]) => {

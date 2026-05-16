@@ -105,7 +105,7 @@ export class tableExpenses extends LitElement {
         return html`
             <div class="card">
                 <div class="card-header">
-                    <h2>Registro de gastos mensuales</h2>
+                    <h2>Ultimos gastos registrados</h2>
                     <div class="actions">
                         <button class="btn-ghost">Filtrar</button>
                         <button class="btn-ghost">Exportar</button>
@@ -120,19 +120,45 @@ export class tableExpenses extends LitElement {
                             <th>Importe</th>
                         </tr>
                     </thead>
-                    <tbody>${this.expenses.map((expense) => html`
+                    <tbody>${this._handleExpenses(this.expenses)}</tbody>
+                </table>
+            </div>
+        `; 
+    }
+
+    _handleExpenses(expenses){        
+        if(expenses.length === 0) return html` <tr><td colspan="4">No hay gastos</td></tr>`;
+        if(expenses.length > 0 && expenses.length < 8){
+            return expenses.map((expense) => html`
+                <tr>
+                    <td>${formatDate(expense.date)}</td>
+                    <td>${expense.supplier}</td>
+                    <td>${expense.concept}</td>
+                    <td class="amount">${expense.amount}</td>
+                </tr>
+            `);
+        }else if(expenses.length > 8){
+            return expenses.slice(0, 8).map((expense) => html`
+                <tr>
+                    <td>${formatDate(expense.date)}</td>
+                    <td>${expense.supplier}</td>
+                    <td>${expense.concept}</td>
+                    <td class="amount">${expense.amount}</td>
+                </tr>
+            `);
+        }
+    }
+}
+
+customElements.define("table-expenses", tableExpenses);
+
+/*
+this.expenses.map((expense) => html`
                         <tr>
                             <td>${formatDate(expense.date)}</td>
                             <td>${expense.supplier}</td>
                             <td>${expense.concept}</td>
                             <td class="amount">${expense.amount}</td>
                         </tr>
-                    `)}
-                    </tbody>
-                </table>
-            </div>
-        `; 
-    }
-}
-
-customElements.define("table-expenses", tableExpenses);
+                    `)
+*/
