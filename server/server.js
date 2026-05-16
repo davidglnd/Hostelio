@@ -35,6 +35,10 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(frontendPath, 'index.html'));
 });
 
+app.get('/api/health', (req, res) => {
+    res.status(200).json({ status: 'ok' });
+});
+
 app.use('/api/auth', authRoutes);
 
 app.use("/api/expenses",expensesRoutes);
