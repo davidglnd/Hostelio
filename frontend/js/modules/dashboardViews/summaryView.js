@@ -3,16 +3,17 @@ import { firstLetterUpperCase } from "../../utils/strings.js";
 
 export function summaryView (expenses){
     console.log("Summary view loaded");
-
     initView(expenses);
 }
 
-function initView(expenses){
+async function initView(expenses){
     const main = document.querySelector("main");
     main.innerHTML = "";
 
-    renderHeader(expenses);
+    await renderHeader(expenses);
+    renderButton(expenses);
 }
+    
 
 async function renderHeader(expenses){
     const date = new Date();
@@ -25,4 +26,17 @@ async function renderHeader(expenses){
     header.subtitle = `${firstLetterUpperCase(date.toLocaleString('default', { weekday: 'long' }))} ${date.toLocaleString('default', { day: 'numeric' })} de ${date.toLocaleString('default', { month: 'long' })} ${date.getFullYear()}`;
     
     main.appendChild(header);
+}
+
+/**
+ * Render the button to add expenses
+ * Temporal solo para mejorar usabilidad de la prueba de la pagina para usuarios
+ */
+function renderButton(){
+    const main = document.querySelector("main");
+    const button = document.createElement("button");
+    button.textContent = "Añadir gastos";
+    main.appendChild(button);
+
+    button.addEventListener("click", () => window.location.href = "/pages/expenses.html");
 }
