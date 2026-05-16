@@ -68,6 +68,8 @@ function renderHeader(){
     
     main.appendChild(header);
     header.appendChild(button);
+
+    button.addEventListener("click", () => window.location.href = "/pages/expenses.html");
 }
 function renderStats(stats){
     const divStatsCards = document.querySelector(".stats-cards");

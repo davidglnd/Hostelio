@@ -4,7 +4,7 @@ const JWT_SECRET = process.env.JWT_SECRET || "cambia_esto_por_un_secreto_seguro"
 
 /**
  * Middleware que verifica el JWT de la cookie.
- * Úsalo en las rutas que requieren autenticación.
+ * Usado en las rutas que requieren autenticación.
  */
 export function requireAuth(req, res, next) {
     const token = req.cookies?.token;

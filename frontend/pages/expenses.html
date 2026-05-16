@@ -9,14 +9,12 @@
 </head>
 <body data-page="expenses">
     <app-header></app-header>
-    <sidebar-nav></sidebar-nav>
     <main>
         <form>
             <label for="supplier">Proveedor</label>
             <input type="text" name="supplier" id="supplier" list="suppliers-list">
             <datalist id="suppliers-list">
-                <option value="Supplier 1">
-                <option value="Supplier 2">
+                <option value="Proveedor por defecto 1">
             </datalist>
 
             <label for="amount">Cantidad</label>
@@ -32,13 +30,15 @@
             <input type="text" name="description" id="description">
 
             <datalist id="concepts-list">
-                <option value="Concepto 1">
-                <option value="Concepto 2">
+                <option value="cocepto por defecto 1">
             </datalist>
 
             <button type="submit">Añadir gasto</button>
         </form>
     </main>
+    <div>
+        <h3>Pagina en desarrollo temporalmente solo permite introducir gastos</h3>
+    </div>
     
 </body>
 </html>
