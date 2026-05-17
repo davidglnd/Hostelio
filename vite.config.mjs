@@ -15,6 +15,7 @@ export default defineConfig({
         signup: resolve(__dirname, 'frontend/pages/signup.html'),
         dashboard: resolve(__dirname, 'frontend/pages/dashboard.html'),
         expenses: resolve(__dirname, 'frontend/pages/expenses.html'),
+        supplier: resolve(__dirname, 'frontend/pages/supplier.html'),
       }
     }
   },
