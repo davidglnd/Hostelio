@@ -57,12 +57,12 @@ export class SidebarNav extends LitElement {
     render() {
         return html`
             <aside>
-                <span class="nav-section-label">General</span>
+                <span class="nav-section-label">Estadisticas</span>
                 <li class="nav-item ${this._isActive("summary")}" @click=${(e) => this._handleClick(e, "summary")}>
                     Resumen
                 </li>
                 <li class="nav-item ${this._isActive("stats")}" @click=${(e) => this._handleClick(e, "stats")}>
-                    Estadisticas
+                    Grafica mensuales
                 </li>
                 <span class="nav-section-label">Informes</span>
                 <li class="nav-item ${this._isActive("monthly")}" @click=${(e) => this._handleClick(e, "monthly")}>
@@ -70,6 +70,10 @@ export class SidebarNav extends LitElement {
                 </li>
                 <li class="nav-item ${this._isActive("weekly")}" @click=${(e) => this._handleClick(e, "weekly")}>
                     Semanal
+                </li>
+                <span class="nav-section-label">Proveedores</span>
+                <li class="nav-item ${this._isActive("supplier")}" @click=${(e) => this._handleClick(e, "supplier")}>
+                    Gasto por proveedor
                 </li>
             </aside>
         `;

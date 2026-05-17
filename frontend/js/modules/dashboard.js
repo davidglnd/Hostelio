@@ -1,7 +1,9 @@
 import { summaryView } from "../modules/dashboardViews/summaryView.js";
 import { monthlyView } from "../modules/dashboardViews/monthlyView.js";
 import { statsView } from "../modules/dashboardViews/statsView.js";
+import { supplierView } from "../modules/dashboardViews/supplierView.js";
 import { getExpenses } from "./stores/expensesStore.js";
+
 
 export function initDashboard() {
     customElements.whenDefined("sidebar-nav").then(async () => {
@@ -42,6 +44,9 @@ function handleViewChange(view, expenses) {
             break;
         case "stats":
             statsView(expenses);
+            break;
+        case "supplier":
+            supplierView(expenses);
             break;
     }
 }
