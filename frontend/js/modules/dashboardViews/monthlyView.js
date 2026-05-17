@@ -36,7 +36,7 @@ function initMonthlyStats(expenses) {
     renderTableExpenses(monthlyExpenses);
 }
 
-// ── Helpers de cálculo ────────────────────────────────────────
+// ── Calculations ─────────────────────────────────────────────────────────
 function getExpensesByMonth(expenses, month) {
     return expenses.filter(expense => new Date(expense.date).getMonth() + 1 === month);
 }

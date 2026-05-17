@@ -10,6 +10,7 @@ import "./components/cards/expensesCard.js";
 import "./components/cards/statsCard.js"
 import "./components/table-expenses.js";
 import "./components/main-header.js";
+import "./components/table-supplier.js";
 
 document.addEventListener("DOMContentLoaded", () => {
     const page = document.body.dataset.page;

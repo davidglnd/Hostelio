@@ -151,14 +151,3 @@ export class tableExpenses extends LitElement {
 }
 
 customElements.define("table-expenses", tableExpenses);
-
-/*
-this.expenses.map((expense) => html`
-                        <tr>
-                            <td>${formatDate(expense.date)}</td>
-                            <td>${expense.supplier}</td>
-                            <td>${expense.concept}</td>
-                            <td class="amount">${expense.amount}</td>
-                        </tr>
-                    `)
-*/

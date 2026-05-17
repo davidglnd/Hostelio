@@ -4,7 +4,7 @@ export function supplierView(expenses){
 
     initView(expenses);
 }
-
+// ── Init ──────────────────────────────────────────────────────
 function initView(expenses){
     const main = document.querySelector("main");
     main.innerHTML = "";
@@ -12,12 +12,29 @@ function initView(expenses){
     renderHeader();
 
     main.appendChild(createContainer());
-
-    const expensesBySupplier = groupExpensesBySupplier(getExpensesThisMonth(expenses));
-
     
+    const suppliersExpenses = groupExpensesBySupplier(expenses);
+
+    /*TO DO: Hacer algo en el caso de nuevo usuario y que no queremos renderizar la tabla de proveedores.*/
+
+    renderSupplierTable(suppliersExpenses);
+}
+// ── Calculations ─────────────────────────────────────────────────────────
+function getSupplier(expenses) {
+    return expenses.reduce((acc, expense) => {
+        if (acc.includes(expense.supplier)) return acc;
+        acc.push(expense.supplier);
+        return acc;
+    },[]);/*SIN USO PERO NO BORRAR*/
 }
 
+function groupExpensesBySupplier(expenses) {
+    return expenses.reduce((acc, expense) => {
+        acc[expense.supplier] = parseFloat(((acc[expense.supplier] ?? 0) + expense.amount).toFixed(2));
+        return acc;
+    }, {});
+}
+// ── Render ────────────────────────────────────────────────────
 function renderHeader(){
     const date = new Date();
 
@@ -31,20 +48,20 @@ function renderHeader(){
     main.appendChild(header);
 }
 
+function renderSupplierTable(expensesBySupplier){
+    
+    const container = document.querySelector(".supplier-info");
+    const table = document.createElement("table-supplier");
+    table.expenses = expensesBySupplier;
+    container.appendChild(table);
+
+    table.addEventListener("supplier-clicked", (e) => {
+        const supplier = e.detail;
+        //window.location.href = `/pages/supplier.html?supplier=${supplier}`;
+    });
+}
 function createContainer(){
     const div = document.createElement("div");
-    div.className = "expenses-supplier";
+    div.className = "supplier-info";
     return div;
-}
-
-function getExpensesThisMonth(expenses) {
-    const month = new Date().getMonth() + 1;
-    return expenses.filter(expense => new Date(expense.date).getMonth() + 1 === month);
-}
-
-function groupExpensesBySupplier(expenses) {
-    return expenses.reduce((acc, expense) => {
-        acc[expense.supplier] = parseFloat(((acc[expense.supplier] ?? 0) + expense.amount).toFixed(2));
-        return acc;
-    }, {});
 }
