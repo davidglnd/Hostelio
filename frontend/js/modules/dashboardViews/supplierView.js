@@ -57,8 +57,7 @@ function renderSupplierTable(expensesBySupplier){
 
     table.addEventListener("supplier-clicked", (e) => {
         const supplier = e.detail;
-        sessionStorage.setItem("supplier", supplier);
-        window.location.href = `/pages/supplier.html`;
+        //window.location.href = `/pages/supplier.html?supplier=${supplier}`;
     });
 }
 function createContainer(){

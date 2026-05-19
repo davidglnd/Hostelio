@@ -11,7 +11,6 @@ import "./components/cards/statsCard.js"
 import "./components/table-expenses.js";
 import "./components/main-header.js";
 import "./components/table-supplier.js";
-import "./components/cards/supplierCard.js";
 
 document.addEventListener("DOMContentLoaded", () => {
     const page = document.body.dataset.page;
