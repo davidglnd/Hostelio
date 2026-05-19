@@ -3,7 +3,7 @@ import { monthlyView } from "../modules/dashboardViews/monthlyView.js";
 import { statsView } from "../modules/dashboardViews/statsView.js";
 import { supplierView } from "../modules/dashboardViews/supplierView.js";
 import { getExpenses } from "./stores/expensesStore.js";
-
+import { sideNavDashboardItems }  from "./config/dashboardConfig.js";
 
 export function initDashboard() {
     customElements.whenDefined("sidebar-nav").then(async () => {
@@ -16,6 +16,7 @@ async function initSetup() {
     const savedView = sessionStorage.getItem("activeView") || "summary";
     const sidebarNav = document.querySelector("sidebar-nav");
     sidebarNav.activeItem = savedView;
+    sidebarNav.items = sideNavDashboardItems;
     
     handleViewChange(savedView, expenses);
 
@@ -50,3 +51,4 @@ function handleViewChange(view, expenses) {
             break;
     }
 }
+
