@@ -2,6 +2,7 @@ import {initExpenses} from "./modules/expenses.js";
 import {initLogin} from "./modules/auth/login.js";
 import {initSignup} from "./modules/auth/signup.js";
 import {initDashboard} from "./modules/dashboard.js";
+import {initSupplier} from "./modules/supplier.js";
 
 //components 
 import "./components/sidebar-nav.js";
@@ -27,6 +28,9 @@ document.addEventListener("DOMContentLoaded", () => {
             break;
         case "dashboard":
             initDashboard();
+            break;
+        case "supplier":
+            initSupplier();
             break;
     }
 });

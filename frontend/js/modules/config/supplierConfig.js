@@ -1,6 +1,6 @@
 export const sideNavSupplierItems = [
     {
-        label: " ",
+        label: "Prueba",
         keys: ["favorites", "stats"],
         labelKey: ["Favoritos", "algo mas"],
     },

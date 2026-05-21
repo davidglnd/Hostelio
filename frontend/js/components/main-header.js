@@ -46,7 +46,7 @@ export class MainHeader extends LitElement {
             display: flex;
             align-items: center;
             gap: var(--space-3);
-        }
+        }        
     `;
 
     render() {
