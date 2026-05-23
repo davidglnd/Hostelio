@@ -1,8 +1,6 @@
 import { firstLetterUpperCase } from "../../utils/strings.js";
 import Chart from 'chart.js/auto';
 export function statsView (expenses){
-    console.log("Stats view loaded");
-
     initView(expenses);
 }
 function initView(expenses){

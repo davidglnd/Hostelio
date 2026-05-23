@@ -3,7 +3,7 @@ import { monthlyView } from "../modules/dashboardViews/monthlyView.js";
 import { statsView } from "../modules/dashboardViews/statsView.js";
 import { supplierView } from "../modules/dashboardViews/supplierView.js";
 import { getExpenses } from "./stores/expensesStore.js";
-
+import { sideNavDashboardItems }  from "./config/dashboardConfig.js";
 
 export function initDashboard() {
     customElements.whenDefined("sidebar-nav").then(async () => {
@@ -13,25 +13,20 @@ export function initDashboard() {
 
 async function initSetup() {
     const expenses = await getExpenses();
-    const savedView = sessionStorage.getItem("activeView") || "summary";
-    const sidebarNav = document.querySelector("sidebar-nav");
-    sidebarNav.activeItem = savedView;
-    
+    const savedView = sessionStorage.getItem("activeViewDashboard") || "summary";
+    setupSidebar(expenses, savedView);
     handleViewChange(savedView, expenses);
-
-    sidebarNav.addEventListener("sidebar-item-clicked", (e) => {
-        sessionStorage.setItem("activeView", e.detail);
-        handleViewChange(e.detail, expenses);
-    });
 }
 
-function loadInitialView() {
-    const savedView = sessionStorage.getItem("activeView") || "summary";
-    
+function setupSidebar(expenses, savedView) {
     const sidebarNav = document.querySelector("sidebar-nav");
     sidebarNav.activeItem = savedView;
-    
-    handleViewChange(savedView);
+    sidebarNav.items = sideNavDashboardItems;
+
+    sidebarNav.addEventListener("sidebar-item-clicked", (e) => {
+        sessionStorage.setItem("activeViewDashboard", e.detail);
+        handleViewChange(e.detail, expenses);
+    });
 }
 
 function handleViewChange(view, expenses) {
@@ -50,3 +45,4 @@ function handleViewChange(view, expenses) {
             break;
     }
 }
+
