@@ -13,26 +13,20 @@ export function initDashboard() {
 
 async function initSetup() {
     const expenses = await getExpenses();
-    const savedView = sessionStorage.getItem("activeView") || "summary";
+    const savedView = sessionStorage.getItem("activeViewDashboard") || "summary";
+    setupSidebar(expenses, savedView);
+    handleViewChange(savedView, expenses);
+}
+
+function setupSidebar(expenses, savedView) {
     const sidebarNav = document.querySelector("sidebar-nav");
     sidebarNav.activeItem = savedView;
     sidebarNav.items = sideNavDashboardItems;
-    
-    handleViewChange(savedView, expenses);
 
     sidebarNav.addEventListener("sidebar-item-clicked", (e) => {
-        sessionStorage.setItem("activeView", e.detail);
+        sessionStorage.setItem("activeViewDashboard", e.detail);
         handleViewChange(e.detail, expenses);
     });
-}
-
-function loadInitialView() {
-    const savedView = sessionStorage.getItem("activeView") || "summary";
-    
-    const sidebarNav = document.querySelector("sidebar-nav");
-    sidebarNav.activeItem = savedView;
-    
-    handleViewChange(savedView);
 }
 
 function handleViewChange(view, expenses) {

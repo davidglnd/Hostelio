@@ -10,7 +10,7 @@ function initView(expenses){
     renderHeader();
 
     main.appendChild(createContainer());
-    
+
     const suppliersExpenses = groupExpensesBySupplier(expenses);
 
     /*TO DO: Hacer algo en el caso de nuevo usuario y que no queremos renderizar la tabla de proveedores.*/

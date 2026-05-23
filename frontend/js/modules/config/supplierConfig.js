@@ -1,7 +1,7 @@
 export const sideNavSupplierItems = [
     {
-        label: "Prueba",
-        keys: ["favorites"],
-        labelKey: ["En desarrollo"],
+        label: "General",
+        keys: ["expensesByMonth"],
+        labelKey: ["Gastos por mes"],
     },
 ];
