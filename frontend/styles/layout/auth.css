@@ -1,7 +1,10 @@
 body.auth-layout{
     display: flex;
     flex-direction: row;
-    justify-content: center;;
+    justify-content: center;
+    background:
+        radial-gradient(ellipse 70% 60% at 80% 20%, rgba(201,91,42,0.08) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 40% at 10% 80%, rgba(237,184,159,0.15) 0%, transparent 50%);
 }
 body.auth-layout > main{
     display: flex;
@@ -12,7 +15,6 @@ body.auth-layout > main{
     width: 60%;
     height: 100vh;
 }
-
 .auth-panel{
     width:45%;
     height: 60%;

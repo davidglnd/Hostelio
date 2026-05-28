@@ -4,7 +4,7 @@
    ============================================================ */
 
 /* 1. Declarar el orden de las capas ANTES de cualquier import */
-@layer reset, base, layout, pages;
+@layer reset, base, layout, pages, components;
 
 /* 2. Tokens */
 @import "base/tokens.css";
@@ -23,4 +23,5 @@
 /* 6. Pages */
 @import "pages/supplier.css" layer(pages);
 
-
+/* 7. Components */
+@import "components/header.css";
