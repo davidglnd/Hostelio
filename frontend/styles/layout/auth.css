@@ -1,0 +1,95 @@
+body.auth-layout{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;;
+}
+body.auth-layout > main{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10%;
+    width: 60%;
+    height: 100vh;
+}
+
+.auth-panel{
+    width:45%;
+    height: 60%;
+    background-color: var(--color-surface);
+    border-radius: var(--radius-lg);
+    padding: var(--space-10);
+    border: var(--border-width) solid var(--color-border);
+    box-shadow: var(--shadow-lg);
+    display:flex;
+    flex-direction:column;
+    gap: var(--space-5);
+}
+
+.auth-branding{
+    width:45%;
+    height: 60%;
+    background-color: var(--color-accent-600);
+    color: var(--color-neutral-0);
+    border-radius: var(--radius-lg);
+    padding: var(--space-10);
+    border: var(--border-width) solid #5C2510;
+    box-shadow: var(--shadow-lg);
+    display:flex;
+    flex-direction:column;
+    gap: var(--space-5);
+}
+
+.register-form, .auth-form{
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+}
+
+.register-form input[type="text"],
+.register-form input[type="email"],
+.register-form input[type="password"],
+.auth-form input[type="email"],
+.auth-form input[type="password"]{
+    padding: var(--space-3);
+    border: var(--border-width) solid var(--color-border);
+    border-radius: var(--radius-md);
+    background-color: var(--color-surface);
+}
+
+.register-form button, .auth-form button{
+    padding: var(--space-3);
+    border: var(--border-width) solid var(--color-border);
+    border-radius: var(--radius-md);
+    background-color: var(--color-accent-600);
+    color: var(--color-neutral-0);
+}
+
+.branding-content{
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-5);
+    min-height: 100%;
+}
+.divider{
+    font-size:var(--text-sm);
+    font-weight:var(--font-semibold);
+    color:#A09C94;
+    text-align:center
+}
+.divider a{
+    color:var(--color-accent-600);
+    font-weight:var(--font-semibold);
+}
+
+.branding-stats{
+    background:rgba(255,255,255,0.1);
+    border-radius:8px;
+    padding:0.75rem 1rem;
+    margin-top:auto
+}
+.auth-panel-header {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+}

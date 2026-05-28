@@ -7,26 +7,24 @@
     <link rel="stylesheet" href="../styles/main.css">
     <script type="module" src="../js/main.js"></script>
 </head>
-<body data-page="login">
+<body class="auth-layout" data-page="login">
     <main class="auth-layout">
         <section class="auth-panel">
             <div class="auth-panel-header">
                 <span>Bienvenido de nuevo a Hostelio</span>
                 <h2>Accede a tu cuenta</h2>
             </div>
-            <div>
-                <form class="auth-form">
-                    <input type="email" name="email" placeholder="Correo electr&oacute;nico" required>
-                    <input type="password" name="password" placeholder="••••••••" required>
-                    <button type="submit">Login</button>
-                </form>
-                <p>No tienes una cuenta? <a href="../pages/signup.html">Registrate</a></p>
-            </div>
+            <form class="auth-form">
+                <input type="email" name="email" placeholder="Correo electr&oacute;nico" required>
+                <input type="password" name="password" placeholder="••••••••" required>
+                <button type="submit">Login</button>
+            </form>
+            <p class="divider">No tienes una cuenta? <a href="../pages/signup.html">Registrate</a></p>
         </section>
         <section class="auth-branding">
             <div class="branding-content">
-                <span class="auth-badge">Hospitality Management</span>
-                <h1>Gestiona tu negocio hotelero de forma elegante.</h1>
+                <span class="auth-badge">Hostelio</span>
+                <h3>Gestiona tu negocio de forma elegante.</h3>
 
                 <p>Controla gastos, proveedores y estadísticas desde una única plataforma diseñada para negocios.</p>
 
@@ -37,7 +35,7 @@
                     </article>
                 </div>
             </div>
-        </section>
+        </section>        
     </main>
 </body>
 </html>

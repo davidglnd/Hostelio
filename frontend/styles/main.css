@@ -17,7 +17,8 @@
 
 /* 5. Layout */
 @import "layout/grid.css"    layer(layout);
-@import "layout/dashboard.css" layer(layout); 
+@import "layout/dashboard.css" layer(layout);
+@import "layout/auth.css" layer(layout);
 
 /* 6. Pages */
 @import "pages/supplier.css" layer(pages);
