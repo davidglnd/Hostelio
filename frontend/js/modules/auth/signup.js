@@ -5,9 +5,7 @@ export function initSignup() {
 }
 
 function setupEvents(){
-    const form = document.querySelector("form");
-    if(!form) return;
-    document.querySelector("form").addEventListener("submit", handleSubmit);
+    document.querySelector("form")?.addEventListener("submit", handleSubmit);
 }
 async function handleSubmit(e){
     const data = getFormData(e);
@@ -23,15 +21,13 @@ function getFormData(e){
 
     const formData = new FormData(e.target);
 
-    const data = {
+    return {
         firstName: formData.get("name"),
         lastName: formData.get("lastName"),
         businessName: formData.get("businessName"),
         email: formData.get("email"),
         password: formData.get("password")
     }
-
-    return data;
 }
 
 function validateFormData(data) {
@@ -49,10 +45,10 @@ function validateFormData(data) {
 }
 
 async function registerUser(data) {
-    axios.post("/api/auth/register", data).then(response => {
-        console.log("response");
-        //window.location.href = "/pages/dashboard.html";
-    }).catch(error => {
-        console.error("this",error);
-    });
+    try{
+        const response = await axios.post("/api/auth/register", data);
+        window.location.href = "/pages/login.html";
+    }catch(error){
+        console.error(error);// TO DO : renderError()
+    }
 }

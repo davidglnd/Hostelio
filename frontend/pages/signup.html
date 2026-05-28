@@ -4,18 +4,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hostelio - Registro</title>
+    <link rel="stylesheet" href="../styles/main.css">
     <script type="module" src="../js/main.js"></script>
 </head>
 <body data-page="signup">
-    <form class="register-form" id="registerForm">
-        <h2>Sign Up</h2>
-        <input type="text" name="name" placeholder="Nombre" required>
-        <input type="text" name="lastName" placeholder="Apellido" required>
-        <input type="text" name="businessName" placeholder="Nombre del negocio" required>
-        <input type="email" name="email" placeholder="Correo electrónico" required>
-        <input type="password" name="password" placeholder="Contraseña" required>
+    <main class="auth-layout">
+        <section class="auth-panel">
+            <form class="register-form" id="registerForm">
+                <h2>Sign Up</h2>
+                <input type="text" name="name" placeholder="Nombre" required>
+                <input type="text" name="lastName" placeholder="Apellido" required>
+                <input type="text" name="businessName" placeholder="Nombre del negocio" required>
+                <input type="email" name="email" placeholder="Correo electrónico" required>
+                <input type="password" name="password" placeholder="Contraseña" required>
 
-        <button type="submit">Sign Up</button>
-  </form>
+                <button type="submit">Sign Up</button>
+            </form>
+        </section>
+        <section class="auth-branding">
+            <div class="branding-content">
+                <span class="auth-badge">Hospitality Management</span>
+                <h1>Gestiona tu negocio hotelero de forma elegante.</h1>
+
+                <p>Controla gastos, proveedores y estadísticas desde una única plataforma diseñada para negocios.</p>
+
+                <div class="branding-stats">
+                    <article>
+                        <strong>24/7</strong>
+                        <span>Control de tu negocio</span>
+                    </article>
+                </div>
+            </div>
+        </section>        
+    </main>
 </body>
 </html>

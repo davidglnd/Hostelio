@@ -4,13 +4,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hostelio - Login</title>
+    <link rel="stylesheet" href="../styles/main.css">
     <script type="module" src="../js/main.js"></script>
 </head>
 <body data-page="login">
-    <form>
-        <input type="email" name="email" placeholder="Correo electr&oacute;nico" required>
-        <input type="password" name="password" placeholder="Contrase&ntilde;a" required>
-        <button type="submit">Login</button>
-    </form>
+    <main class="auth-layout">
+        <section class="auth-panel">
+            <div class="auth-panel-header">
+                <span>Bienvenido de nuevo a Hostelio</span>
+                <h2>Accede a tu cuenta</h2>
+            </div>
+            <div>
+                <form class="auth-form">
+                    <input type="email" name="email" placeholder="Correo electr&oacute;nico" required>
+                    <input type="password" name="password" placeholder="••••••••" required>
+                    <button type="submit">Login</button>
+                </form>
+                <p>No tienes una cuenta? <a href="../pages/signup.html">Registrate</a></p>
+            </div>
+        </section>
+        <section class="auth-branding">
+            <div class="branding-content">
+                <span class="auth-badge">Hospitality Management</span>
+                <h1>Gestiona tu negocio hotelero de forma elegante.</h1>
+
+                <p>Controla gastos, proveedores y estadísticas desde una única plataforma diseñada para negocios.</p>
+
+                <div class="branding-stats">
+                    <article>
+                        <strong>24/7</strong>
+                        <span>Control de tu negocio</span>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
 </body>
 </html>

@@ -1,4 +1,5 @@
 import axios from "axios";
+import { clearExpenses } from "./stores/expensesStore";
 export function initExpenses(){
     console.log("Expenses module loaded");
 
@@ -33,7 +34,7 @@ async function handleSubmit(e){
 
     try{
         const result = await axios.post("/api/expenses", data);
-        console.log(result);
+        clearExpenses();
         window.location.href = "/pages/expenses.html";
     }catch(error){
         handleError(error);
