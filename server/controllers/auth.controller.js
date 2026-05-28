@@ -75,11 +75,14 @@ async function register(req, res) {
         return res.status(409).json({ message: "Ya hay un usuario registrado con ese correo." });
     }
 
+    const passwordHash = await bcrypt.hash(password, 10);
+
     try{
-        const user = new User({ firstName, lastName, email, password, businessName});
+        const user = new User({ firstName, lastName, email, password: passwordHash, businessName});
         await user.save();
         res.status(201).json(user);
     }catch(err){
+        console.log(err);
         res.status(500).json({ message: "Error al crear el usuario." });
     }
 }
