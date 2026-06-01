@@ -11,7 +11,7 @@ async function handleSubmit(e){
     const data = getFormData(e);
     const error = validateFormData(data);
 
-    if(error) return console.error(error);// TO DO : renderError()
+    if(error) return renderError(error);
 
     await registerUser(data);
 
@@ -34,12 +34,12 @@ function validateFormData(data) {
     if (!data.firstName || !data.email || !data.password) 
         return "Todos los campos son obligatorios";
 
-    // const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    // if (!emailRegex.test(data.email)) 
-    //     return "El email no tiene un formato válido";
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(data.email)) 
+        return "El email no tiene un formato válido";
 
-    // if (data.password.length < 8) 
-    //     return "La contraseña debe tener al menos 8 caracteres";
+    if (data.password.length < 8) 
+        return "La contraseña debe tener al menos 8 caracteres";
 
     return null;
 }
@@ -49,6 +49,12 @@ async function registerUser(data) {
         const response = await axios.post("/api/auth/register", data);
         window.location.href = "/pages/login.html";
     }catch(error){
-        console.error(error);// TO DO : renderError()
+        renderError(error.response.data.message);
     }
+}
+
+function renderError(error) {
+    const errorElement = document.querySelector(".auth-error");
+    errorElement.textContent = error;
+    setTimeout(() => errorElement.textContent = "", 3000);
 }

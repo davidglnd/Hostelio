@@ -14,12 +14,10 @@ export async function addExpenses(req, res) {
             supplier,
             idUser,
         });
-        console.log(newExpense)
         await newExpense.save();
 
         res.status(201).json(newExpense);
     }catch(err){
-        console.log(err);
         res.status(500).json({ message: "Error al crear el gasto." });
     }
 

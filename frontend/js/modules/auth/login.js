@@ -24,7 +24,7 @@ async function handleSubmit(e) {
     }
     
     const error = validateLogin(data);
-    if(error) return console.error(error);
+    if(error) return document.querySelector(".auth-error").textContent = error;
     
     try{
         const result = await loginUser(data);
@@ -47,7 +47,8 @@ async function loginUser(data) {
 function handleError(error){
     console.log(error)
     if(error.response){
-        console.error(error.response.data.message || "Credenciales incorrectas");
+        document.querySelector(".auth-error").textContent = error.response.data.message;
+        setTimeout(() => document.querySelector(".auth-error").textContent = "", 3000);
     }else{
         alert("Error de conexión");
     }
