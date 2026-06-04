@@ -3,10 +3,11 @@ import bcrypt from "bcrypt";
 
 export async function updateProfile(req, res) {
     const changes = filterEmptyValues(req.body.changes);
-
-    const error = await validatePassword(req.body.changes.password,req.body.id);
-    if(error){
-        return res.status(400).json({ message: error });
+    if(req.body.changes.password){
+        const error = await validatePassword(req.body.changes.password,req.body.id);
+        if(error){
+            return res.status(400).json({ message: error });
+        }
     }
 
     try{
