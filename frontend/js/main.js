@@ -3,6 +3,7 @@ import {initLogin} from "./modules/auth/login.js";
 import {initSignup} from "./modules/auth/signup.js";
 import {initDashboard} from "./modules/dashboard.js";
 import {initSupplier} from "./modules/supplier.js";
+import {initProfile} from "./modules/profile.js";
 
 //components 
 import "./components/sidebar-nav.js";
@@ -31,6 +32,9 @@ document.addEventListener("DOMContentLoaded", () => {
             break;
         case "supplier":
             initSupplier();
+            break;
+        case "profile":
+            initProfile();
             break;
     }
 });

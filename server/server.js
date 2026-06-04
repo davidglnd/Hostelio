@@ -7,6 +7,7 @@ import cookieParser from "cookie-parser";
 
 import authRoutes from './routes/auth.routes.js'; 
 import expensesRoutes from './routes/expenses.routes.js';
+import userRoutes from './routes/user.routes.js';
 import e from 'express';
 
 const app = express();
@@ -42,6 +43,8 @@ app.get('/api/health', (req, res) => {
 app.use('/api/auth', authRoutes);
 
 app.use("/api/expenses",expensesRoutes);
+
+app.use("/api/user", userRoutes);
 
 // 5. 404
 app.use((req, res) => {

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hostelio - Mi perfil</title>
+    <link rel="stylesheet" href="../styles/main.css">
+    <script type="module" src="../js/main.js"></script>
+</head>
+
+<body class="profile-layout" data-page="profile">
+    <app-header></app-header>
+    <main>
+        <!-- heading -->
+        <div class="profile-heading">
+            <h1>Mi perfil</h1>
+            <p>Gestiona tu información personal y credenciales de acceso.</p>
+        </div>
+        <!-- profile -->
+        <div class="profile-card">
+            <div class="profile-card-body">
+                <div class="profile-info">
+                    <h3 id="profileName"></h3>
+                    <p id="profileEmail"></p>
+                    <p id="profileBusiness"></p>
+                    <!-- TO DO - ADD MORE INFO -->
+                </div>
+            </div>
+        </div>
+        <!-- form card -->
+        <div class="form-card">
+            <div class="form-card-header">
+                <h2>Información personal</h2>
+                <p>Actualiza tu nombre, email y datos del negocio.</p>
+            </div>
+            <form class="profile-form" id="profileForm">
+
+                <div class="form-row">
+                    <div class="field">
+                        <label for="firstName">Nombre</label>
+                        <div class="field-input-wrap">
+                            <span class="field-icon">👤</span>
+                            <input type="text" id="firstName" name="firstName" placeholder="Tu nombre">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label for="lastName">Apellido</label>
+                        <div class="field-input-wrap">
+                            <span class="field-icon">👤</span>
+                            <input type="text" id="lastName" name="lastName" placeholder="Tu apellido">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label for="email">Correo electrónico</label>
+                    <div class="field-input-wrap">
+                        <span class="field-icon">✉️</span>
+                        <input type="email" id="email" name="email" placeholder="tu@email.com">
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label for="businessName">Nombre del negocio</label>
+                    <div class="field-input-wrap">
+                        <span class="field-icon">🏢</span>
+                        <input type="text" id="businessName" name="businessName" placeholder="Nombre de tu empresa">
+                    </div>
+                    <span class="field-notice">Aparecerá en los informes y exportaciones.</span>
+                </div>
+
+                <div class="form-divider"></div>
+                <span class="section-label">Cambiar contraseña</span>
+
+                <div class="field">
+                    <label for="currentPassword">Contraseña actual</label>
+                    <div class="field-input-wrap">
+                        <span class="field-icon">🔑</span>
+                        <input type="password" id="currentPassword" name="currentPassword"
+                            placeholder="Tu contraseña actual">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="field">
+                        <label for="newPassword">Nueva contraseña</label>
+                        <div class="field-input-wrap">
+                            <span class="field-icon">🔒</span>
+                            <input type="password" id="newPassword" name="newPassword"
+                                placeholder="Mínimo 8 caracteres">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label for="confirmPassword">Confirmar contraseña</label>
+                        <div class="field-input-wrap">
+                            <span class="field-icon">🔒</span>
+                            <input type="password" id="confirmPassword" name="confirmPassword"
+                                placeholder="Repite la nueva contraseña">
+                        </div>
+                    </div>
+                </div>
+                <span class="form-notice"></span>
+                <div class="form-divider"></div>
+            </form>
+            <div class="form-footer">
+                <button type="button" class="btn-cancel" id="btnCancel">
+                    Descartar cambios
+                </button>
+                <button type="submit" form="profileForm" class="btn-save" id="btnSave">
+                    Guardar cambios
+                </button>
+            </div>
+        </div>
+        <div class="danger-card">
+            <div class="danger-card-header">
+                <h2>Zona de peligro</h2>
+                <p>Estas acciones son irreversibles. Actúa con precaución.</p>
+            </div>
+            <div class="danger-body">
+                <p>Al eliminar tu cuenta se borrarán permanentemente todos tus datos,
+                    gastos e informes. Esta acción no se puede deshacer.</p>
+                <button class="btn-danger" id="btnDelete">Eliminar cuenta</button>
+            </div>
+            <div class="danger-body">
+                <p>Al eliminar los datos perderas todos los gastos y proveedores
+                    registrados. Esta acción no se puede deshacer.</p>
+                <button class="btn-danger" id="btnDeleteData">Eliminar datos</button>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>

@@ -32,13 +32,11 @@ const userSchema = new mongoose.Schema({
         type: String,
         trim: true,
         lowercase: true,
-        default: "",
     },
     businessName: {
         type: String,
         trim: true,
         lowercase: true,
-        default: "",
     },
 }, { timestamps: true });
 
@@ -46,6 +44,5 @@ userSchema.virtual("fullName").get(function () {
     return `${this.firstName} ${this.lastName}`;
 });
 
-const User = mongoose.model("User", userSchema);
+export default mongoose.model("User", userSchema);
 
-export default User;

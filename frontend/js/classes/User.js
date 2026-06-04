@@ -1,18 +1,10 @@
-class User {
-    constructor(idUser, firstName, email, password, role = "basic", lastName, businessName) {
-        this.idUser = crypto.randomUUID();
-        this.firstName = firstName.trim().toLowerCase() || "";
-        this.email = email?.trim().toLowerCase() || "";
-        this.password = password;
+export class User{
+    constructor (firstName, lastName, email, password, role = "basic", businessName) {
+        this.firstName = firstName.trim().toLowerCase();
+        this.lastName = lastName.trim().toLowerCase();
+        this.email = email.trim().toLowerCase();
+        this.#password = password;
         this.role = role;
-        this.lastName = lastName?.trim().toLowerCase() || "";
-        this.businessName = businessName?.trim().toLowerCase() || "";
-    }
-
-    get fullName() {
-    return `${this.firstName} ${this.lastName}`;
+        this.businessName = businessName.trim().toLowerCase();
     }
 }
-
-export default User
-

@@ -1,5 +1,5 @@
-import { formatDate } from "../../utils/dataUtils";
-import { firstLetterUpperCase } from "../../utils/strings";
+import { formatDate } from "../../utils/dataUtils.js";
+import { firstLetterUpperCase } from "../../utils/strings.js";
 export function supplierByMonthView(expenses, supplier) {
     console.log("Supplier by month view loaded");
     initView(expenses, supplier);

@@ -4,10 +4,213 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Index</title>       
+    <link rel="stylesheet" href="styles/pages/index.css">
     <script type="module" src="js/main.js"></script>
 </head>
 <body>
-    <h1>Index</h1>
-    <a href="/pages/login.html">Ir al login</a>
+
+<!-- ════ NAVBAR ════ -->
+<nav>
+    <a href="/" class="nav-brand">
+        <div class="nav-logo">H</div>
+        <span>Hostelio</span>
+    </a>
+    <div class="nav-actions">
+        <a href="/pages/login.html" class="btn-ghost">Iniciar sesión</a>
+        <a href="/pages/signup.html" class="btn-primary">Crear cuenta gratis</a>
+    </div>
+</nav>
+
+
+<!-- ════ HERO ════ -->
+<section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+        <div class="hero-badge">
+            <span class="hero-badge-dot"></span>
+            Ya disponible — Pruébalo gratis
+        </div>
+        <h1>Controla los gastos<br>de tu negocio <em>sin esfuerzo</em></h1>
+        <p class="hero-sub">
+            Hostelio centraliza todos tus gastos, proveedores y estadísticas en un solo panel.
+            Toma decisiones basadas en datos reales, no en suposiciones.
+        </p>
+        <div class="hero-ctas">
+            <a href="/pages/signup.html" class="btn-hero btn-hero-solid">Empezar ahora — es gratis</a>
+            <a href="#features" class="btn-hero btn-hero-outline">Ver cómo funciona</a>
+        </div>
+    </div>
+</section>
+
+
+<!-- ════ TRUST BAR ════ -->
+<div class="trust">
+    <div class="trust-item">
+        <span class="trust-number">100%</span>
+        <span class="trust-label">Datos seguros</span>
+    </div>
+    <div class="trust-divider"></div>
+    <div class="trust-item">
+        <span class="trust-number">0€</span>
+        <span class="trust-label">Para empezar</span>
+    </div>
+    <div class="trust-divider"></div>
+    <div class="trust-item">
+        <span class="trust-number">∞</span>
+        <span class="trust-label">Gastos registrados</span>
+    </div>
+    <div class="trust-divider"></div>
+    <div class="trust-item">
+        <span class="trust-number">1 min</span>
+        <span class="trust-label">Para configurar</span>
+    </div>
+</div>
+
+
+<!-- ════ FEATURES ════ -->
+<section id="features">
+    <p class="section-label">Funcionalidades</p>
+    <h2 class="section-title">Todo lo que necesitas para gestionar tu negocio</h2>
+    <div class="features-grid">
+        <div class="feature-card">
+            <div class="feature-icon">📊</div>
+            <h3>Dashboard en tiempo real</h3>
+            <p>Visualiza el resumen de tus gastos mensuales, tendencias y estadísticas en un vistazo.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">🧾</div>
+            <h3>Registro de gastos</h3>
+            <p>Añade gastos en segundos con proveedor, concepto, importe y fecha. Todo organizado automáticamente.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">📈</div>
+            <h3>Gráficos mensuales</h3>
+            <p>Compara mes a mes tus gastos con gráficas de barras claras. Detecta picos y patrones al instante.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">🏪</div>
+            <h3>Análisis por proveedor</h3>
+            <p>Descubre qué proveedores consumen más presupuesto y toma decisiones de negociación informadas.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">🔒</div>
+            <h3>Acceso seguro</h3>
+            <p>Autenticación con JWT en cookie httpOnly. Tus datos solo son accesibles para ti.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">📅</div>
+            <h3>Informes semanales y mensuales</h3>
+            <p>Navega por vistas temporales detalladas para auditar cualquier periodo de tu actividad.</p>
+        </div>
+    </div>
+</section>
+
+
+<!-- ════ CHANGELOG / NOVEDADES ════ -->
+<section class="changelog" id="novedades">
+    <div class="changelog-inner">
+        <p class="section-label">Novedades</p>
+        <h2 class="section-title">Lo último en Hostelio</h2>
+
+        <div class="changelog-list">
+
+            <div class="changelog-item">
+                <span class="changelog-date">May 2025</span>
+                <div class="changelog-body">
+                    <span class="changelog-tag tag-new">Nuevo</span>
+                    <h4>Vista de estadísticas con gráfico de barras</h4>
+                    <p>Ahora puedes ver todos tus gastos agrupados por mes en un gráfico interactivo con Chart.js. Tooltips, colores y escala automática incluidos.</p>
+                </div>
+            </div>
+
+            <div class="changelog-item">
+                <span class="changelog-date">Abr 2025</span>
+                <div class="changelog-body">
+                    <span class="changelog-tag tag-new">Nuevo</span>
+                    <h4>Tabla de gastos mensuales</h4>
+                    <p>El informe mensual ahora incluye una tabla detallada con todos los gastos del mes: fecha, proveedor, concepto e importe de un vistazo.</p>
+                </div>
+            </div>
+
+            <div class="changelog-item">
+                <span class="changelog-date">Abr 2025</span>
+                <div class="changelog-body">
+                    <span class="changelog-tag tag-improve">Mejora</span>
+                    <h4>Tarjetas de stats en el dashboard mensual</h4>
+                    <p>Las tarjetas ahora muestran la variación porcentual respecto al mes anterior con indicadores visuales de subida o bajada.</p>
+                </div>
+            </div>
+
+            <div class="changelog-item">
+                <span class="changelog-date">Mar 2025</span>
+                <div class="changelog-body">
+                    <span class="changelog-tag tag-new">Nuevo</span>
+                    <h4>Autenticación con JWT + cookie httpOnly</h4>
+                    <p>Sistema de login seguro con tokens de 7 días de duración, protegido contra XSS y CSRF. Cierre de sesión limpio desde cualquier vista.</p>
+                </div>
+            </div>
+
+            <div class="changelog-item">
+                <span class="changelog-date">Mar 2025</span>
+                <div class="changelog-body">
+                    <span class="changelog-tag tag-fix">Fix</span>
+                    <h4>Persistencia de vista activa en el sidebar</h4>
+                    <p>Al recargar la página el sidebar ahora recuerda correctamente la última sección visitada gracias a sessionStorage.</p>
+                </div>
+            </div>
+
+            <div class="changelog-item">
+                <span class="changelog-date">Feb 2025</span>
+                <div class="changelog-body">
+                    <span class="changelog-tag tag-new">Nuevo</span>
+                    <h4>Lanzamiento de la versión alfa</h4>
+                    <p>Primera versión pública de Hostelio con registro de gastos, panel de resumen y acceso multi-dispositivo.</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- ════ CTA FINAL ════ -->
+<section class="cta-section">
+    <h2>Empieza a controlar<br>tus gastos <em>hoy mismo</em></h2>
+    <p>Crea tu cuenta en menos de un minuto. Sin tarjeta de crédito, sin compromisos.</p>
+    <a href="/pages/signup.html" class="btn-hero btn-hero-solid">Crear cuenta gratis →</a>
+</section>
+
+
+<!-- ════ FOOTER ════ -->
+<footer>
+    <div class="footer-brand">
+        <div class="nav-logo">H</div>
+        <span>Hostelio</span>
+    </div>
+    <p>© 2025 Hostelio. Todos los derechos reservados.</p>
+</footer>
+
+
+<script>
+    // Scroll-reveal para el changelog
+    const items = document.querySelectorAll('.changelog-item');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry, i) => {
+            if (entry.isIntersecting) {
+                setTimeout(() => entry.target.classList.add('visible'), i * 80);
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.15 });
+
+    items.forEach(item => observer.observe(item));
+
+    // Navbar shrink on scroll
+    const nav = document.querySelector('nav');
+    window.addEventListener('scroll', () => {
+        nav.style.height = window.scrollY > 40 ? '54px' : '64px';
+    }, { passive: true });
+</script>
+
 </body>
 </html>

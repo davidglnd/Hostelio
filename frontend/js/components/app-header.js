@@ -22,6 +22,7 @@ export class AppHeader extends LitElement {
             height: var(--header-height);
             background: var(--color-surface);
             border-bottom: var(--border-width) solid var(--color-border);
+            width: 100hw;
         }
  
         /* ── Brand ── */
@@ -143,7 +144,7 @@ export class AppHeader extends LitElement {
                 </nav>
 
                 <div class="header-right">
-                    <a href="/pages/profile">Perfil</a>
+                    <a href="/pages/profile.html">Perfil</a>
                     <a @click="${this._logout}">Cerrar sesión</a>
                 </div>
             </header>

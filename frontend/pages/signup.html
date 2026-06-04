@@ -4,17 +4,50 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hostelio - Registro</title>
+    <link rel="stylesheet" href="../styles/main.css">
     <script type="module" src="../js/main.js"></script>
 </head>
-<body data-page="signup">
-    <form class="register-form" id="registerForm">
-        <h2>Sign Up</h2>
-        <input type="text" name="name" placeholder="Nombre" required>
-        <input type="text" name="businessName" placeholder="Nombre del negocio" required>
-        <input type="email" name="email" placeholder="Correo electrónico" required>
-        <input type="password" name="password" placeholder="Contraseña" required>
+<body class="auth-layout" data-page="signup">
+    <nav>
+        <a href="/" class="nav-brand">
+            <div class="nav-logo">H</div>
+            <span>Hostelio</span>
+        </a>
+        <div class="nav-actions">
+            <a href="/pages/login.html" class="btn-ghost">Iniciar sesión</a>
+            <a href="/pages/signup.html" class="btn-primary">Crear cuenta gratis</a>
+        </div>
+    </nav>
+    <main>
+        <section class="auth-panel">
+            <form class="register-form" id="registerForm">
+                <h2>Registrate</h2>
+                <input type="text" name="name" placeholder="Nombre" required>
+                <input type="text" name="lastName" placeholder="Apellido" required>
+                <input type="text" name="businessName" placeholder="Nombre del negocio" required>
+                <input type="email" name="email" placeholder="Correo electrónico" required>
+                <input type="password" name="password" placeholder="Contraseña" required>
 
-        <button type="submit">Sign Up</button>
-  </form>
+                <button type="submit">Sign Up</button>
+            </form>
+            <p class="divider">¿Ya tienes cuenta? <a href="../pages/login.html">Inicia sesión</a></p>
+            <div class="auth-error"></div>
+        </section>
+        <section class="auth-branding">
+            <div class="branding-content">
+                <span class="auth-badge">Hostelio</span>
+                <h3>Gestiona tu negocio de forma elegante.</h3>
+
+                <p>Controla gastos, proveedores y estadísticas desde una única plataforma diseñada para negocios.</p>
+
+                <div class="branding-stats">
+                    <article>
+                        <strong>24/7</strong>
+                        <span>Control de tu negocio</span>
+                    </article>
+                </div>
+            </div>
+        </section>        
+    </main>
 </body>
 </html>
