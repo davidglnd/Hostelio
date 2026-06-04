@@ -23,6 +23,15 @@ export async function addExpenses(req, res) {
 
 }
 
+export async function deleteAllExpensesByUserId(req, res) {
+    try{
+        const result = await Expense.deleteMany({ idUser: req.user.id });
+        res.status(200).json(result);
+    }catch(err){
+        console.log(err);
+        res.status(500).json({ message: "Error al eliminar los gastos." });
+    }
+}
 export async function getAllExpenses(req, res) {
     try{
         const expenses = await Expense.find({ idUser: req.user.id });

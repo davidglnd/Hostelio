@@ -37,15 +37,10 @@ async function login(req, res) {
         if (!validPassword) {
             return res.status(400).json({ message: "Credenciales incorrectas"});
         }
-        
-        console.log("Login:", {
-            message: "Succesful login",
-            user: { id: user.idUser, name: user.firstName },
-        });
 
         // Generar JWT con datos básicos del usuario (nunca incluyas la contraseña)
         const token = jwt.sign(
-            { id: user.idUser, email: user.email, name: user.firstName },
+            { _id: user._id ,id: user.idUser, email: user.email, name: user.firstName, lastName: user.lastName, businessName: user.businessName, createdAt: user.createdAt },
             JWT_SECRET,
             { expiresIn: JWT_EXPIRES_IN }
         );
@@ -55,13 +50,18 @@ async function login(req, res) {
 
         return res.status(200).json({
             message: "Login exitoso.",
-            user: { id: user.idUser, email: user.email, name: user.name },
+            user: { id: user.idUser, email: user.email, name: user.name},
         });
     } catch (err) {
         console.error("Error en login:", err);
         return res.status(500).json({ error: "Error interno del servidor en el login." });
     }
 }
+
+/**
+ * POST /auth/register
+ * Crea un nuevo usuario.
+ */
 async function register(req, res) {
     const { firstName, lastName, email, password, businessName } = req.body;
 
