@@ -4,13 +4,49 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hostelio - Login</title>
+    <link rel="stylesheet" href="../styles/main.css">
     <script type="module" src="../js/main.js"></script>
 </head>
-<body data-page="login">
-    <form>
-        <input type="email" name="email" placeholder="Correo electr&oacute;nico" required>
-        <input type="password" name="password" placeholder="Contrase&ntilde;a" required>
-        <button type="submit">Login</button>
-    </form>
+<body class="auth-layout" data-page="login">
+    <nav>
+        <a href="/" class="nav-brand">
+            <div class="nav-logo">H</div>
+            <span>Hostelio</span>
+        </a>
+        <div class="nav-actions">
+            <a href="/pages/login.html" class="btn-ghost">Iniciar sesión</a>
+            <a href="/pages/signup.html" class="btn-primary">Crear cuenta gratis</a>
+        </div>
+    </nav>
+    <main class="auth-layout">
+        <section class="auth-panel">
+            <div class="auth-panel-header">
+                <span>Bienvenido de nuevo a Hostelio</span>
+                <h2>Accede a tu cuenta</h2>
+            </div>
+            <form class="auth-form">
+                <input type="email" name="email" placeholder="Correo electr&oacute;nico" required>
+                <input type="password" name="password" placeholder="••••••••" required>
+                <button type="submit">Login</button>
+            </form>
+            <p class="divider">No tienes una cuenta? <a href="../pages/signup.html">Registrate</a></p>
+            <div class="auth-error"></div>
+        </section>
+        <section class="auth-branding">
+            <div class="branding-content">
+                <span class="auth-badge">Hostelio</span>
+                <h3>Gestiona tu negocio de forma elegante.</h3>
+
+                <p>Controla gastos, proveedores y estadísticas desde una única plataforma diseñada para negocios.</p>
+
+                <div class="branding-stats">
+                    <article>
+                        <strong>24/7</strong>
+                        <span>Control de tu negocio</span>
+                    </article>
+                </div>
+            </div>
+        </section>        
+    </main>
 </body>
 </html>

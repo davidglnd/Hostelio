@@ -3,6 +3,12 @@ import { LitElement, html, css } from "lit";
 export class SidebarNav extends LitElement {
     static properties = {
         activeItem: { type: String },
+        items: { type: Array },
+    }
+    constructor() {
+        super();
+        this.activeItem = sessionStorage.getItem("activeView") || "";
+        this.items = [];
     }
     static styles = css `    
         aside {
@@ -57,35 +63,26 @@ export class SidebarNav extends LitElement {
     render() {
         return html`
             <aside>
-                <span class="nav-section-label">Estadisticas</span>
-                <li class="nav-item ${this._isActive("summary")}" @click=${(e) => this._handleClick(e, "summary")}>
-                    Resumen
-                </li>
-                <li class="nav-item ${this._isActive("stats")}" @click=${(e) => this._handleClick(e, "stats")}>
-                    Grafica mensuales
-                </li>
-                <span class="nav-section-label">Informes</span>
-                <li class="nav-item ${this._isActive("monthly")}" @click=${(e) => this._handleClick(e, "monthly")}>
-                    Mensual
-                </li>
-                <li class="nav-item ${this._isActive("weekly")}" @click=${(e) => this._handleClick(e, "weekly")}>
-                    Semanal
-                </li>
-                <span class="nav-section-label">Proveedores</span>
-                <li class="nav-item ${this._isActive("supplier")}" @click=${(e) => this._handleClick(e, "supplier")}>
-                    Gasto por proveedor
-                </li>
+                ${this.items.map((item) => html`
+                    <span>${item.label}</span>
+                    ${
+                        item.keys.map((key, index) => html `
+                            <li class="${this._isActive(key)}" @click="${(e) => this._handleClick(e, key)}">
+                                ${item.labelKey[index]}
+                            </li>       
+                        `)
+                    }
+                `)}
             </aside>
         `;
     }
     _isActive(item) {
         return this.activeItem === item ? "active" : "";
     }
-    _handleClick(e, target){
-        this.shadowRoot.querySelectorAll(".nav-item").forEach(item => item.classList.remove("active"));
-        e.target.classList.add("active");
+    _handleClick(e, key){
+        this.activeItem = key;
         this.dispatchEvent(new CustomEvent("sidebar-item-clicked", {
-            detail: target,
+            detail: key,
             bubbles:true,
             composed:true,
             }

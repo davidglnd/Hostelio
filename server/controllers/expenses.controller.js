@@ -14,17 +14,24 @@ export async function addExpenses(req, res) {
             supplier,
             idUser,
         });
-        console.log(newExpense)
         await newExpense.save();
 
         res.status(201).json(newExpense);
     }catch(err){
-        console.log(err);
         res.status(500).json({ message: "Error al crear el gasto." });
     }
 
 }
 
+export async function deleteAllExpensesByUserId(req, res) {
+    try{
+        const result = await Expense.deleteMany({ idUser: req.user.id });
+        res.status(200).json(result);
+    }catch(err){
+        console.log(err);
+        res.status(500).json({ message: "Error al eliminar los gastos." });
+    }
+}
 export async function getAllExpenses(req, res) {
     try{
         const expenses = await Expense.find({ idUser: req.user.id });

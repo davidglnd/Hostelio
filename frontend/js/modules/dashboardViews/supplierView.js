@@ -1,7 +1,5 @@
 import { firstLetterUpperCase } from "../../utils/strings.js";
 export function supplierView(expenses){
-    console.log("Supplier view loaded");
-
     initView(expenses);
 }
 // ── Init ──────────────────────────────────────────────────────
@@ -12,7 +10,7 @@ function initView(expenses){
     renderHeader();
 
     main.appendChild(createContainer());
-    
+
     const suppliersExpenses = groupExpensesBySupplier(expenses);
 
     /*TO DO: Hacer algo en el caso de nuevo usuario y que no queremos renderizar la tabla de proveedores.*/
@@ -20,14 +18,6 @@ function initView(expenses){
     renderSupplierTable(suppliersExpenses);
 }
 // ── Calculations ─────────────────────────────────────────────────────────
-function getSupplier(expenses) {
-    return expenses.reduce((acc, expense) => {
-        if (acc.includes(expense.supplier)) return acc;
-        acc.push(expense.supplier);
-        return acc;
-    },[]);/*SIN USO PERO NO BORRAR*/
-}
-
 function groupExpensesBySupplier(expenses) {
     return expenses.reduce((acc, expense) => {
         acc[expense.supplier] = parseFloat(((acc[expense.supplier] ?? 0) + expense.amount).toFixed(2));
@@ -57,7 +47,8 @@ function renderSupplierTable(expensesBySupplier){
 
     table.addEventListener("supplier-clicked", (e) => {
         const supplier = e.detail;
-        //window.location.href = `/pages/supplier.html?supplier=${supplier}`;
+        sessionStorage.setItem("supplier", supplier);
+        window.location.href = `/pages/supplier.html`;
     });
 }
 function createContainer(){

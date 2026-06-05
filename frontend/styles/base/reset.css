@@ -55,6 +55,11 @@ ul[role='list'],
 ol[role='list'] {
   list-style: none;
 }
+/* AÑADIDO  Elimina estilos de listas con nav*/
+nav ul,
+nav ol {
+    list-style: none;
+}
 
 /* Mejora tipografía en párrafos largos */
 p, h1, h2, h3, h4, h5, h6 {

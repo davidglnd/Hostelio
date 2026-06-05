@@ -2,7 +2,6 @@ import axios from "axios";
 import { firstLetterUpperCase } from "../../utils/strings.js";
 
 export function summaryView (expenses){
-    console.log("Summary view loaded");
     initView(expenses);
 }
 

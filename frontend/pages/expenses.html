@@ -10,35 +10,35 @@
 <body data-page="expenses">
     <app-header></app-header>
     <main>
-        <form>
-            <label for="supplier">Proveedor</label>
-            <input type="text" name="supplier" id="supplier" list="suppliers-list">
-            <datalist id="suppliers-list">
-                <option value="Proveedor por defecto 1">
-            </datalist>
+        <div class="form-container">
+            <h2>Añadir gasto</h2>
+            <form class="expense-form">
+                <label for="supplier">Proveedor</label>
+                <input type="text" name="supplier" id="supplier" list="suppliers-list">
+                <datalist id="suppliers-list">
+                    <option value="Proveedor por defecto 1">
+                </datalist>
 
-            <label for="amount">Cantidad</label>
-            <input type="number" name="amount" id="amount" step="0.01">
+                <label for="amount">Cantidad</label>
+                <input type="number" name="amount" id="amount" step="0.01">
 
-            <label for="date">Fecha</label>
-            <input type="date" name="date" id="date">
+                <label for="date">Fecha</label>
+                <input type="date" name="date" id="date">
 
-            <label for="concept">Concepto</label>
-            <input type="text" name="concept" id="concept" list="concepts-list">
+                <label for="concept">Concepto</label>
+                <input type="text" name="concept" id="concept" list="concepts-list">
 
-            <label for="description">Observaciones</label>
-            <input type="text" name="description" id="description">
+                <label for="description">Observaciones</label>
+                <input type="text" name="description" id="description">
 
-            <datalist id="concepts-list">
-                <option value="cocepto por defecto 1">
-            </datalist>
+                <datalist id="concepts-list">
+                    <option value="cocepto por defecto 1">
+                </datalist>
 
-            <button type="submit">Añadir gasto</button>
-        </form>
-    </main>
-    <div>
-        <h3>Pagina en desarrollo temporalmente solo permite introducir gastos</h3>
-    </div>
-    
+                <button type="submit">Añadir gasto</button>
+            </form>
+            <div class="result-container"></div>
+        </div>
+    </main>    
 </body>
 </html>

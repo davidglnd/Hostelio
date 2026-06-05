@@ -1,7 +1,9 @@
 import axios from "axios";
+import { clearExpenses } from "./stores/expensesStore";
 export function initExpenses(){
     console.log("Expenses module loaded");
-
+// TO DO : Normalizar los gastos y proveedores para que se guarden bien en base de datos independientemente de las mayúsculas y los espacios en blanco
+// ademas de empezar a dar de alta proveedores y asi ligar los gastos a los proveedores.
     setupDate();
     setupEvents();
 }
@@ -33,8 +35,9 @@ async function handleSubmit(e){
 
     try{
         const result = await axios.post("/api/expenses", data);
-        console.log(result);
-        window.location.href = "/pages/expenses.html";
+        clearExpenses();
+        renderResult(result);
+        setTimeout(() => location.reload(), 2000);
     }catch(error){
         handleError(error);
     }
@@ -58,4 +61,12 @@ function handleError(error){
     }else{
         alert("Error de conexión");
     }
+}
+
+function renderResult(result){
+    console.log(result);
+    const resultContainer = document.querySelector(".result-container");
+    resultContainer.textContent = "Gasto creado con exito";
+    setTimeout(() => resultContainer.textContent = "", 2000);
+
 }
