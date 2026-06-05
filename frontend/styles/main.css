@@ -24,6 +24,7 @@
 /* 6. Pages */
 @import "pages/supplier.css" layer(pages);
 @import "pages/profile.css" layer(pages);
+@import "pages/expenses.css" layer(pages);
 
 /* 7. Components */
 @import "components/header.css";
