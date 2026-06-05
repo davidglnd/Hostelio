@@ -6,8 +6,8 @@ export const sideNavDashboardItems = [
     },
     {
         label: "Informes",
-        keys: ["monthly", "weekly"],
-        labelKey: ["Mensual", "Semanal"],
+        keys: ["monthly"],
+        labelKey: ["Mensual"],
     },
     {
         label: "Proveedores",

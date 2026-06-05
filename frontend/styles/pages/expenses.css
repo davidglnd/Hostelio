@@ -1,0 +1,43 @@
+.form-container{
+    width: 30%;
+    margin: auto;
+}
+
+.form-container > h2{
+    padding: var(--space-6);
+    border-bottom: var(--border-width) solid var(--color-border);
+}
+
+.expense-form{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: var(--space-6);
+}
+
+.expense-form label{
+    font-size: var(--text-sm);
+    font-weight: var(--font-semibold);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+}
+
+.expense-form input[type="text"], 
+.expense-form input[type="number"], 
+.expense-form input[type="date"]{
+    padding: var(--space-2);
+    border: var(--border-width) solid var(--color-border);
+    border-radius: var(--radius-md);
+    background-color: var(--color-surface);
+}
+
+.expense-form button{
+    padding: var(--space-3);
+    border: var(--border-width) solid var(--color-border);
+    border-radius: var(--radius-md);
+    background-color: var(--color-accent-600);
+    color: var(--color-neutral-0);
+    width: 60%;
+    margin: auto;
+}
