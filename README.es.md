@@ -1,6 +1,6 @@
 # 🏨 Hostelio
 
-> Plataforma web de gestión de gastos empresariales 
+> Plataforma web de gestión de gastos empresariales
 
 ![Node.js](https://img.shields.io/badge/Node.js-20+-339933?style=flat-square&logo=node.js&logoColor=white)
 ![Express](https://img.shields.io/badge/Express-5.x-000000?style=flat-square&logo=express&logoColor=white)
@@ -36,6 +36,14 @@ Ofrece un dashboard interactivo con estadísticas mensuales, gráficos de evoluc
 
 ---
 
+## 🖼️ Vista previa
+
+![Index + Login](./docs/login.gif)
+![Navegacion de la pagina](./docs/flow.gif)
+![Perfil](./docs/profile.gif)
+
+---
+
 ## ✨ Características
 
 - 🔐 **Autenticación segura** — Login y registro con JWT almacenado en cookie `httpOnly`, protección XSS y CSRF
@@ -52,6 +60,7 @@ Ofrece un dashboard interactivo con estadísticas mensuales, gráficos de evoluc
 ## 🛠️ Tecnologías
 
 ### Backend
+
 | Tecnología | Versión | Uso |
 |---|---|---|
 | Node.js | ≥ 20 | Runtime |
@@ -63,6 +72,7 @@ Ofrece un dashboard interactivo con estadísticas mensuales, gráficos de evoluc
 | cookie-parser | 1.x | Manejo de cookies |
 
 ### Frontend
+
 | Tecnología | Versión | Uso |
 |---|---|---|
 | Vite | 8.x | Bundler y dev server |
@@ -222,6 +232,7 @@ Todas las rutas protegidas requieren una cookie `token` válida (establecida aut
 | `GET` | `/api/auth/me` | ✅ Sí | Devuelve datos del usuario autenticado. |
 
 **Body — `POST /api/auth/login`**
+
 ```json
 {
   "email": "usuario@ejemplo.com",
@@ -230,6 +241,7 @@ Todas las rutas protegidas requieren una cookie `token` válida (establecida aut
 ```
 
 **Respuesta exitosa — `GET /api/auth/me`**
+
 ```json
 {
   "user": {
@@ -250,6 +262,7 @@ Todas las rutas protegidas requieren una cookie `token` válida (establecida aut
 | `POST` | `/api/expenses` | ✅ Sí | Crea un nuevo gasto. |
 
 **Body — `POST /api/expenses`**
+
 ```json
 {
   "supplier": "Mercadona",
@@ -257,6 +270,24 @@ Todas las rutas protegidas requieren una cookie `token` válida (establecida aut
   "date": "2025-06-01",
   "concept": "Alimentación",
   "description": "Compra semanal de suministros"
+}
+```
+
+---
+
+### Perfil de usuario — `/api/user/me`
+
+| Método | Ruta | Protegida | Descripción |
+|---|---|---|---|
+| `PATCH` | `/api/user/me` | ✅ Sí | Actualiza datos del perfil autenticado (nombre, email, contraseña) |
+| `DELETE` | `/api/user/me` | ✅ Sí | Elimina permanentemente la cuenta y todos sus datos. |
+
+**Body — `PATCH /api/user/me`**
+
+```json
+{
+  "name": "ejemplo",
+  "email": "alguno@ejemplo.com"
 }
 ```
 
@@ -376,6 +407,4 @@ Este proyecto está bajo la licencia **ISC**. Consulta el archivo `package.json`
 
 ---
 
-<p align="center">
-  Hecho con ☕ por <a href="https://github.com/davidglnd">davidglnd</a>
-</p>
+David Galindo — [davidglnd](https://github.com/davidglnd)
