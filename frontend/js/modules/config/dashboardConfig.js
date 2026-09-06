@@ -6,12 +6,12 @@ export const sideNavDashboardItems = [
     },
     {
         label: "Informes",
-        keys: ["monthly"],
-        labelKey: ["Mensual"],
+        keys: ["monthly", "period"],
+        labelKey: ["Resumen mensual", "Por periodo"],
     },
     {
         label: "Proveedores",
         keys: ["supplier"],
-        labelKey: ["Gasto por proveedor"],
+        labelKey: ["Historico proveedores"],
     }
 ];
