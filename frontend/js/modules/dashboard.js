@@ -1,9 +1,10 @@
 import { summaryView } from "../modules/dashboardViews/summaryView.js";
 import { monthlyView } from "../modules/dashboardViews/monthlyView.js";
+import { periodView } from "../modules/dashboardViews/periodView.js";
 import { statsView } from "../modules/dashboardViews/statsView.js";
 import { supplierView } from "../modules/dashboardViews/supplierView.js";
 import { getExpenses } from "./stores/expensesStore.js";
-import { sideNavDashboardItems }  from "./config/dashboardConfig.js";
+import { sideNavDashboardItems } from "./config/dashboardConfig.js";
 
 export function initDashboard() {
     customElements.whenDefined("sidebar-nav").then(async () => {
@@ -36,6 +37,9 @@ function handleViewChange(view, expenses) {
             break;
         case "monthly":
             monthlyView(expenses);
+            break;
+        case "period":
+            periodView(expenses);
             break;
         case "stats":
             statsView(expenses);

@@ -106,10 +106,6 @@ export class tableExpenses extends LitElement {
             <div class="card">
                 <div class="card-header">
                     <h2>Ultimos gastos registrados</h2>
-                    <div class="actions">
-                        <button class="btn-ghost">Filtrar</button>
-                        <button class="btn-ghost">Exportar</button>
-                    </div>
                 </div>
                 <table>
                     <thead>
@@ -123,12 +119,12 @@ export class tableExpenses extends LitElement {
                     <tbody>${this._handleExpenses(this.expenses)}</tbody>
                 </table>
             </div>
-        `; 
+        `;
     }
 
-    _handleExpenses(expenses){        
-        if(expenses.length === 0) return html` <tr><td colspan="4">No hay gastos</td></tr>`;
-        if(expenses.length > 0 && expenses.length < 8){
+    _handleExpenses(expenses) {
+        if (expenses.length === 0) return html` <tr><td colspan="4">No hay gastos</td></tr>`;
+        if (expenses.length > 0 && expenses.length < 8) {
             return expenses.map((expense) => html`
                 <tr>
                     <td>${formatDate(expense.date)}</td>
@@ -137,7 +133,7 @@ export class tableExpenses extends LitElement {
                     <td class="amount">${expense.amount}</td>
                 </tr>
             `);
-        }else if(expenses.length > 8){
+        } else if (expenses.length > 8) {
             return expenses.slice(0, 8).map((expense) => html`
                 <tr>
                     <td>${formatDate(expense.date)}</td>
@@ -148,6 +144,7 @@ export class tableExpenses extends LitElement {
             `);
         }
     }
+
 }
 
 customElements.define("table-expenses", tableExpenses);

@@ -127,7 +127,7 @@ export class AppHeader extends LitElement {
     _isActive(href) {
         return href === this.currentPath ? "active" : "";
     }
-    _logout(){
+    _logout() {
         logout();
     }
     render() {
